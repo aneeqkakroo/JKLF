@@ -1,0 +1,1247 @@
+/* =========================================================
+   INTRO
+========================================================= */
+
+.leadership-intro {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 100px;
+
+  margin-bottom: 70px;
+}
+
+.leadership-intro__heading h2 {
+  margin: 10px 0 0;
+
+  font-size:
+    clamp(2.8rem, 5vw, 4.6rem);
+
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.leadership-intro__content {
+  max-width: 680px;
+}
+
+.leadership-intro__content p {
+  color: var(--color-text-secondary);
+}
+
+.leadership-large-copy {
+  color: var(--color-text) !important;
+
+  font-size:
+    clamp(1.22rem, 2vw, 1.5rem);
+
+  line-height: 1.55;
+}
+
+.leadership-feature-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  border-top:
+    1px solid var(--color-border);
+
+  border-bottom:
+    1px solid var(--color-border);
+}
+
+.leadership-feature {
+  min-height: 230px;
+
+  padding: 32px;
+
+  border-right:
+    1px solid var(--color-border);
+}
+
+.leadership-feature:last-child {
+  border-right: 0;
+}
+
+.leadership-feature > svg {
+  margin-bottom: 34px;
+
+  color: var(--color-primary);
+}
+
+.leadership-feature h3 {
+  margin-bottom: 10px;
+
+  font-size: 1.08rem;
+}
+
+.leadership-feature p {
+  margin: 0;
+
+  color: var(--color-text-secondary);
+
+  font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   CURRENT LEADERSHIP
+========================================================= */
+
+.current-leadership-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 25px;
+}
+
+.current-leader-card {
+  min-height: 460px;
+
+  display: grid;
+
+  grid-template-columns:
+    0.85fr 1.15fr;
+
+  border:
+    1px solid var(--color-border);
+
+  border-radius:
+    var(--radius-lg);
+
+  overflow: hidden;
+
+  background: white;
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.current-leader-card:hover {
+  transform:
+    translateY(-5px);
+
+  box-shadow:
+    var(--shadow-md);
+}
+
+.current-leader-card__image {
+  min-height: 460px;
+
+  background:
+    #e6ece8;
+}
+
+.current-leader-card__image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.current-leader-card__placeholder {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #e7eee9,
+      #dae5dd
+    );
+
+  color:
+    rgba(11, 107, 58, 0.34);
+}
+
+.current-leader-card__content {
+  padding: 36px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.current-leader-card__category {
+  color: var(--color-primary);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+
+.current-leader-card h3 {
+  margin: 10px 0 5px;
+
+  font-size: 1.7rem;
+}
+
+.current-leader-card__content > strong {
+  color:
+    var(--color-text-secondary);
+
+  font-size: 0.88rem;
+}
+
+.current-leader-card__location {
+  margin: 22px 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color:
+    var(--color-text-secondary);
+
+  font-size: 0.77rem;
+}
+
+.current-leader-card p {
+  color:
+    var(--color-text-secondary);
+
+  font-size: 0.87rem;
+}
+
+.current-leader-card__link {
+  margin-top: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  color: var(--color-primary);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   OFFICE BEARERS
+========================================================= */
+
+.office-bearer-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+.office-bearer-card {
+  min-height: 105px;
+
+  padding: 18px;
+
+  display: grid;
+
+  grid-template-columns:
+    58px 1fr auto;
+
+  gap: 15px;
+
+  align-items: center;
+
+  border:
+    1px solid var(--color-border);
+
+  border-radius:
+    var(--radius-md);
+
+  background: white;
+
+  transition:
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.office-bearer-card:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(11, 107, 58, 0.3);
+}
+
+.office-bearer-card__image {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  background:
+    var(--color-primary-light);
+
+  color: var(--color-primary);
+}
+
+.office-bearer-card__image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.office-bearer-card__content > span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color:
+    var(--color-primary);
+
+  font-size: 0.61rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.office-bearer-card h3 {
+  margin: 0 0 2px;
+
+  font-size: 0.96rem;
+}
+
+.office-bearer-card p {
+  margin: 0;
+
+  color:
+    var(--color-text-secondary);
+
+  font-size: 0.76rem;
+}
+
+.office-bearer-card__arrow {
+  color: #adb5af;
+}
+
+
+/* =========================================================
+   ORGANISATION STRUCTURE
+========================================================= */
+
+.leadership-structure {
+  overflow: hidden;
+}
+
+.organisation-structure {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+}
+
+.structure-level {
+  position: relative;
+}
+
+.structure-level__line {
+  position: relative;
+
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+}
+
+.structure-level__marker {
+  position: relative;
+  z-index: 2;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.45);
+
+  border-radius: 50%;
+
+  background:
+    var(--color-primary-dark);
+
+  color:
+    rgba(255, 255, 255, 0.75);
+
+  font-size: 0.66rem;
+  font-weight: 700;
+}
+
+.structure-level__line > span {
+  position: absolute;
+
+  left: 38px;
+  right: 0;
+
+  height: 1px;
+
+  background:
+    rgba(255, 255, 255, 0.15);
+}
+
+.structure-level__content {
+  min-height: 265px;
+
+  padding:
+    25px 30px 25px 0;
+
+  border-right:
+    1px solid rgba(255, 255, 255, 0.12);
+}
+
+.structure-level:last-child
+.structure-level__content {
+  border-right: 0;
+}
+
+.structure-level__content > svg {
+  margin-bottom: 38px;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+.structure-level h3 {
+  margin-bottom: 12px;
+
+  font-size: 1.14rem;
+}
+
+.structure-level p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.57);
+
+  font-size: 0.83rem;
+}
+
+
+/* =========================================================
+   HISTORICAL FIGURES
+========================================================= */
+
+.historical-leadership__heading {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+.historical-leadership__heading
+.ui-section-header {
+  margin-bottom: 48px;
+}
+
+.historical-leadership__heading
+> .ui-button {
+  margin-bottom: 48px;
+}
+
+.historical-leadership-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 22px;
+}
+
+.historical-leader-card {
+  border:
+    1px solid var(--color-border);
+
+  border-radius:
+    var(--radius-md);
+
+  overflow: hidden;
+
+  background: white;
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.historical-leader-card:hover {
+  transform:
+    translateY(-5px);
+
+  box-shadow:
+    var(--shadow-md);
+}
+
+.historical-leader-card__image {
+  height: 360px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #e9f0eb,
+      #dae6de
+    );
+
+  color:
+    rgba(11, 107, 58, 0.35);
+}
+
+.historical-leader-card__image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.historical-leader-card__content {
+  padding: 28px;
+}
+
+.historical-leader-card__content > span {
+  color:
+    var(--color-primary);
+
+  font-size: 0.64rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.historical-leader-card h3 {
+  margin: 8px 0 12px;
+
+  font-size: 1.35rem;
+}
+
+.historical-leader-card p {
+  color:
+    var(--color-text-secondary);
+
+  font-size: 0.84rem;
+}
+
+.historical-leader-card__content > div {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 20px;
+
+  color:
+    var(--color-primary);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   FORMER LEADERSHIP
+========================================================= */
+
+.former-leadership-list {
+  border-top:
+    1px solid var(--color-border);
+}
+
+.former-leader-row {
+  min-height: 92px;
+
+  display: grid;
+
+  grid-template-columns:
+    58px 1.2fr 1fr 0.7fr auto;
+
+  gap: 20px;
+
+  align-items: center;
+
+  padding: 16px 0;
+
+  border-bottom:
+    1px solid var(--color-border);
+}
+
+.former-leader-row__image {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  background:
+    var(--color-primary-light);
+
+  color:
+    var(--color-primary);
+}
+
+.former-leader-row__image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.former-leader-row__name,
+.former-leader-row__role,
+.former-leader-row__period {
+  display: flex;
+  flex-direction: column;
+}
+
+.former-leader-row span {
+  margin-bottom: 3px;
+
+  color:
+    var(--color-text-secondary);
+
+  font-size: 0.6rem;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.former-leader-row strong {
+  font-size: 0.84rem;
+}
+
+.former-leader-row > svg {
+  color: #a8afa9;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.leadership-search {
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  border:
+    1px solid var(--color-border);
+
+  border-radius:
+    var(--radius-lg);
+
+  overflow: hidden;
+
+  background: white;
+
+  box-shadow:
+    var(--shadow-sm);
+}
+
+.leadership-search__main {
+  padding: 18px 20px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  border-bottom:
+    1px solid var(--color-border);
+}
+
+.leadership-search__main > svg {
+  color:
+    var(--color-text-secondary);
+}
+
+.leadership-search__main input {
+  flex: 1;
+
+  min-width: 0;
+
+  border: 0;
+  outline: 0;
+}
+
+.leadership-search__main button {
+  padding: 10px 18px;
+
+  border: 0;
+  border-radius:
+    var(--radius-sm);
+
+  background:
+    var(--color-primary);
+
+  color: white;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.leadership-search__filters {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+}
+
+.leadership-search__filters button {
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  border: 0;
+  border-right:
+    1px solid var(--color-border);
+
+  background: white;
+
+  text-align: left;
+}
+
+.leadership-search__filters button:last-child {
+  border-right: 0;
+}
+
+.leadership-search__filters svg {
+  color:
+    var(--color-primary);
+}
+
+.leadership-search__filters div {
+  display: flex;
+  flex-direction: column;
+}
+
+.leadership-search__filters span {
+  color:
+    var(--color-text-secondary);
+
+  font-size: 0.61rem;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.leadership-search__filters strong {
+  margin-top: 2px;
+
+  font-size: 0.78rem;
+}
+
+.leadership-search__note {
+  margin: 15px auto 0;
+
+  max-width: 900px;
+
+  color:
+    var(--color-text-secondary);
+
+  font-size: 0.74rem;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.leadership-cta__heading {
+  max-width: 700px;
+
+  margin-bottom: 45px;
+}
+
+.leadership-cta__heading h2 {
+  margin: 9px 0 0;
+
+  font-size:
+    clamp(2.5rem, 5vw, 4rem);
+
+  letter-spacing: -0.04em;
+}
+
+.leadership-cta__grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.14);
+}
+
+.leadership-cta-card {
+  min-height: 270px;
+
+  padding: 36px;
+
+  display: grid;
+
+  grid-template-columns:
+    auto 1fr auto;
+
+  gap: 24px;
+
+  border-right:
+    1px solid rgba(255, 255, 255, 0.14);
+
+  color: white;
+}
+
+.leadership-cta-card:last-child {
+  border-right: 0;
+}
+
+.leadership-cta-card > svg:first-child {
+  color:
+    rgba(255, 255, 255, 0.62);
+}
+
+.leadership-cta-card > svg:last-child {
+  color:
+    rgba(255, 255, 255, 0.4);
+}
+
+.leadership-cta-card span {
+  color:
+    rgba(255, 255, 255, 0.45);
+
+  font-size: 0.64rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.leadership-cta-card h3 {
+  margin: 7px 0 12px;
+
+  font-size: 1.4rem;
+}
+
+.leadership-cta-card p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.56);
+
+  font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   INDIVIDUAL PROFILE
+========================================================= */
+
+.leadership-profile-hero {
+  padding: 80px 0;
+
+  background:
+    var(--color-primary-dark);
+
+  color: white;
+}
+
+.leadership-profile-back {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 40px;
+
+  color:
+    rgba(255, 255, 255, 0.62);
+
+  font-size: 0.8rem;
+}
+
+.leadership-profile-hero__grid {
+  display: grid;
+
+  grid-template-columns:
+    300px 1fr;
+
+  gap: 60px;
+
+  align-items: end;
+}
+
+.leadership-profile-hero__image {
+  height: 380px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius:
+    var(--radius-lg);
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  color:
+    rgba(255, 255, 255, 0.3);
+}
+
+.leadership-profile-hero__image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.leadership-profile-hero__content h1 {
+  margin: 15px 0 10px;
+
+  font-size:
+    clamp(3rem, 7vw, 5.4rem);
+
+  letter-spacing:
+    -0.05em;
+}
+
+.leadership-profile-hero__content > strong {
+  display: block;
+
+  font-size: 1.15rem;
+}
+
+.leadership-profile-hero__content > p {
+  margin: 8px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.6);
+}
+
+.leadership-profile-layout {
+  display: grid;
+
+  grid-template-columns:
+    1.4fr 0.6fr;
+
+  gap: 90px;
+}
+
+.leadership-profile-main h2 {
+  margin: 10px 0 25px;
+
+  font-size:
+    clamp(2.2rem, 4vw, 3.5rem);
+
+  letter-spacing:
+    -0.04em;
+}
+
+.leadership-profile-main
+> p:not(.leadership-large-copy) {
+  color:
+    var(--color-text-secondary);
+
+  line-height: 1.8;
+}
+
+.leadership-profile-sidebar {
+  border-top:
+    1px solid var(--color-border);
+}
+
+.leadership-profile-sidebar
+> span {
+  display: block;
+
+  padding: 16px 0;
+
+  color:
+    var(--color-text-secondary);
+
+  font-size: 0.67rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.leadership-profile-sidebar a {
+  padding: 18px 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  border-top:
+    1px solid var(--color-border);
+}
+
+.leadership-profile-sidebar a > svg {
+  color:
+    var(--color-primary);
+}
+
+.leadership-profile-sidebar a div {
+  display: flex;
+  flex-direction: column;
+}
+
+.leadership-profile-sidebar strong {
+  font-size: 0.84rem;
+}
+
+.leadership-profile-sidebar small {
+  margin-top: 2px;
+
+  color:
+    var(--color-text-secondary);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+  .leadership-intro {
+    gap: 55px;
+  }
+
+  .leadership-feature-grid,
+  .organisation-structure {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .leadership-feature:nth-child(2) {
+    border-right: 0;
+  }
+
+  .leadership-feature:nth-child(-n + 2) {
+    border-bottom:
+      1px solid var(--color-border);
+  }
+
+  .current-leadership-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .office-bearer-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .organisation-structure {
+    gap: 0;
+  }
+
+  .structure-level__line > span {
+    display: none;
+  }
+
+  .structure-level__content {
+    border-bottom:
+      1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .historical-leadership-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width: 800px) {
+
+  .leadership-intro {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .historical-leadership__heading {
+    display: block;
+  }
+
+  .historical-leadership__heading
+  > .ui-button {
+    margin-top: -20px;
+    margin-bottom: 42px;
+  }
+
+  .former-leader-row {
+    grid-template-columns:
+      52px 1fr auto;
+  }
+
+  .former-leader-row__role,
+  .former-leader-row__period {
+    display: none;
+  }
+
+  .leadership-profile-hero__grid {
+    grid-template-columns:
+      220px 1fr;
+
+    gap: 40px;
+  }
+
+  .leadership-profile-hero__image {
+    height: 300px;
+  }
+
+  .leadership-profile-layout {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .leadership-feature-grid,
+  .office-bearer-grid,
+  .organisation-structure,
+  .historical-leadership-grid,
+  .leadership-cta__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .leadership-feature {
+    border-right: 0;
+
+    border-bottom:
+      1px solid var(--color-border);
+  }
+
+  .leadership-feature:last-child {
+    border-bottom: 0;
+  }
+
+  .current-leader-card {
+    grid-template-columns: 1fr;
+  }
+
+  .current-leader-card__image {
+    min-height: 350px;
+  }
+
+  .office-bearer-card {
+    grid-template-columns:
+      50px 1fr auto;
+  }
+
+  .organisation-structure {
+    gap: 0;
+  }
+
+  .structure-level__content {
+    min-height: auto;
+
+    padding-bottom: 35px;
+
+    border-right: 0;
+  }
+
+  .historical-leader-card__image {
+    height: 310px;
+  }
+
+  .leadership-search__main {
+    flex-wrap: wrap;
+  }
+
+  .leadership-search__main input {
+    min-width:
+      calc(100% - 40px);
+  }
+
+  .leadership-search__main button {
+    width: 100%;
+  }
+
+  .leadership-search__filters {
+    grid-template-columns: 1fr;
+  }
+
+  .leadership-search__filters button {
+    border-right: 0;
+
+    border-bottom:
+      1px solid var(--color-border);
+  }
+
+  .leadership-search__filters button:last-child {
+    border-bottom: 0;
+  }
+
+  .leadership-cta-card {
+    grid-template-columns:
+      auto 1fr;
+
+    border-right: 0;
+
+    border-bottom:
+      1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .leadership-cta-card:last-child {
+    border-bottom: 0;
+  }
+
+  .leadership-cta-card > svg:last-child {
+    display: none;
+  }
+
+  .leadership-profile-hero {
+    padding: 55px 0;
+  }
+
+  .leadership-profile-hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .leadership-profile-hero__image {
+    width: min(100%, 320px);
+    height: 390px;
+  }
+}

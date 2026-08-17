@@ -1,0 +1,257 @@
+.ui-container {
+  width: min(calc(100% - 40px), var(--container-width));
+  margin-inline: auto;
+}
+
+.ui-container--narrow {
+  max-width: var(--container-narrow);
+}
+
+/* Sections */
+
+.ui-section {
+  padding: 96px 0;
+}
+
+.ui-section--soft {
+  background: var(--color-background-soft);
+}
+
+.ui-section--dark {
+  background: var(--color-primary-dark);
+  color: white;
+}
+
+.ui-section--primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+/* Section Header */
+
+.ui-section-header {
+  max-width: 700px;
+  margin-bottom: 48px;
+}
+
+.ui-section-header--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.ui-section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 8px 0 16px;
+}
+
+.ui-section-description {
+  color: var(--color-text-secondary);
+  font-size: 1.08rem;
+}
+
+.ui-section--dark .ui-section-description,
+.ui-section--primary .ui-section-description {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.ui-eyebrow {
+  display: block;
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ui-section--dark .ui-eyebrow,
+.ui-section--primary .ui-eyebrow {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Buttons */
+
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+
+  font-weight: 600;
+
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.ui-button:hover {
+  transform: translateY(-1px);
+}
+
+.ui-button--small {
+  padding: 8px 14px;
+  font-size: 0.88rem;
+}
+
+.ui-button--medium {
+  padding: 12px 20px;
+}
+
+.ui-button--large {
+  padding: 15px 26px;
+  font-size: 1.02rem;
+}
+
+/* Button variants */
+
+.ui-button--primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.ui-button--primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.ui-button--secondary {
+  background: white;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.ui-button--secondary:hover {
+  background: var(--color-background-soft);
+}
+
+.ui-button--outline {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.ui-button--outline:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+.ui-button--white {
+  background: white;
+  color: var(--color-primary-dark);
+}
+
+/* Card */
+
+.ui-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.ui-card--hover {
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.ui-card--hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Badges */
+
+.ui-badge {
+  display: inline-flex;
+  padding: 5px 10px;
+  border-radius: 999px;
+
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.ui-badge--primary {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.ui-badge--accent {
+  background: #fbeaec;
+  color: var(--color-accent);
+}
+
+.ui-badge--neutral {
+  background: var(--color-background-muted);
+  color: var(--color-text-secondary);
+}
+
+/* Grid */
+
+.ui-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.ui-grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ui-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ui-grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.ui-divider {
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .ui-section {
+    padding: 72px 0;
+  }
+
+  .ui-grid--3,
+  .ui-grid--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .ui-container {
+    width: min(calc(100% - 28px), var(--container-width));
+  }
+
+  .ui-section {
+    padding: 56px 0;
+  }
+
+  .ui-grid--2,
+  .ui-grid--3,
+  .ui-grid--4 {
+    grid-template-columns: 1fr;
+  }
+  .ui-button--hero-outline {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.ui-button--hero-outline:hover {
+  background: white;
+  color: var(--color-primary-dark);
+  border-color: white;
+}
+}

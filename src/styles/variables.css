@@ -1,0 +1,42 @@
+:root {
+  /* JKLF brand */
+  --color-primary: #0b6b3a;
+  --color-primary-dark: #074a29;
+  --color-primary-light: #eaf5ef;
+
+  --color-accent: #b52025;
+  --color-accent-dark: #8d171b;
+
+  /* Neutral palette */
+  --color-background: #ffffff;
+  --color-background-soft: #f7f8f7;
+  --color-background-muted: #eef1ef;
+
+  --color-text: #17201b;
+  --color-text-secondary: #5d6861;
+  --color-text-light: #ffffff;
+
+  --color-border: #dfe5e1;
+
+  /* Content sizing */
+  --container-width: 1240px;
+  --container-narrow: 850px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Shadow */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.08);
+
+  /* Transitions */
+  --transition: 180ms ease;
+
+  --font-size-page-title:
+  clamp(3.2rem, 7vw, 5.8rem);
+
+--font-size-section-title:
+  clamp(2.5rem, 5vw, 4rem);
+}
