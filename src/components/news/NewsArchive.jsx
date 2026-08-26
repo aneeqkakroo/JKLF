@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import {
   news,
   newsCategories,
-} from "../../data/news";
+} from "./../data/news.js";
 
 import {
   Badge,
