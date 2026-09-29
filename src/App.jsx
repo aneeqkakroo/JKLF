@@ -1,3 +1,4 @@
+import VerifyMembership from "./pages/VerifyMembership";
 import {
   BrowserRouter,
   Routes,
@@ -27,6 +28,7 @@ export default function App() {
         <Route element={<Layout />}>
 
           <Route index element={<Home />} />
+          <Route path="/verify-membership" element={<VerifyMembership />} />
 
           <Route path="/about" element={<About />} />
 
