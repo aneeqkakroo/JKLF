@@ -1,0 +1,10 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { verifyMembership } from '../src/lib/verifyMembership.js';
+const token='00000000-0000-4000-8000-000000000000';
+const options={token,url:'https://example.supabase.co',key:'public-test-key'};
+test('invalid tokens never call the server',async()=>{assert.deepEqual(await verifyMembership({...options,token:'bad',request:()=>{throw new Error('must not fetch')}}),{kind:'invalid'})});
+test('active verification only returns name and status',async()=>{const result=await verifyMembership({...options,request:async(url,init)=>{assert.equal(url,'https://example.supabase.co/rest/v1/rpc/verify_card');assert.equal(init.credentials,'omit');assert.equal(init.referrerPolicy,'no-referrer');return {ok:true,json:async()=>({name:'Test Member',status:'Active',valid:true,phone:'private'})}}});assert.deepEqual(result,{kind:'active',name:'Test Member',status:'Active'})});
+test('suspended membership is inactive',async()=>{assert.equal((await verifyMembership({...options,request:async()=>({ok:true,json:async()=>({name:'Test Member',status:'Inactive',valid:false})})})).kind,'inactive')});
+test('unknown card is distinct from network failure',async()=>{assert.deepEqual(await verifyMembership({...options,request:async()=>({ok:true,json:async()=>({valid:false})})}),{kind:'not-found'});await assert.rejects(verifyMembership({...options,request:async()=>({ok:false})}))});
+test('inconsistent server status cannot display active membership',async()=>{await assert.rejects(verifyMembership({...options,request:async()=>({ok:true,json:async()=>({name:'Test',valid:true,status:'Inactive'})})}))});
