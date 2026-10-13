@@ -1,10 +1,15 @@
 import {
-  Crown,
-  Network,
+  ArrowRight,
   Globe2,
+  Landmark,
   MapPinned,
-  UsersRound,
 } from "lucide-react";
+
+import {
+  centralCommittee,
+  diplomaticBureau,
+  organisationalZones,
+} from "../../data/leadership";
 
 import {
   Container,
@@ -14,45 +19,24 @@ import {
 
 import "./leadership.css";
 
-const levels = [
-  {
-    level: "01",
-    title: "Central Leadership",
-    description:
-      "Central political and organisational leadership.",
-    icon: Crown,
-  },
-  {
-    level: "02",
-    title: "Central Departments",
-    description:
-      "Political, organisational, media and other functional responsibilities.",
-    icon: Network,
-  },
-  {
-    level: "03",
-    title: "Regional Organisation",
-    description:
-      "Regional and local organisational structures where publicly documented.",
-    icon: MapPinned,
-  },
-  {
-    level: "04",
-    title: "International Organisation",
-    description:
-      "International chapters and organisational structures operating outside the region.",
-    icon: Globe2,
-  },
-  {
-    level: "05",
-    title: "Members & Supporters",
-    description:
-      "The wider organisational community represented through appropriate structures.",
-    icon: UsersRound,
-  },
-];
+// Collapses repeated roles, e.g. three "Vice Chairman" entries → "Vice Chairman ×3".
+function summariseRoles(office) {
+  const counts = new Map();
+
+  office.forEach(({ role }) => {
+    counts.set(role, (counts.get(role) || 0) + 1);
+  });
+
+  return [...counts].map(([role, count]) =>
+    count > 1 ? `${role} ×${count}` : role
+  );
+}
 
 export default function OrganisationStructure() {
+  const committeeRoles = summariseRoles(centralCommittee.office);
+  const zoneRoles = summariseRoles(organisationalZones[0].office);
+  const bureauRoles = summariseRoles(diplomaticBureau.office);
+
   return (
     <Section
       variant="dark"
@@ -64,47 +48,103 @@ export default function OrganisationStructure() {
         <SectionHeader
           eyebrow="Organisation"
           title="Organisational Structure"
-          description="A simplified visual overview of how organisational responsibility can be presented."
+          description="One Central Committee directing six zones, each with the same set of office holders."
         />
 
-        <div className="organisation-structure">
+        <div className="org-chart">
 
-          {levels.map((item, index) => {
-            const Icon = item.icon;
+          <div className="org-chart__top">
 
-            return (
-              <article
-                className="structure-level"
-                key={item.level}
+            <article className="org-node org-node--central">
+
+              <Landmark size={28} />
+
+              <span>
+                Tier 01
+              </span>
+
+              <h3>
+                {centralCommittee.title}
+              </h3>
+
+              <ul className="org-roles">
+                {committeeRoles.map((role) => (
+                  <li key={role}>
+                    {role}
+                  </li>
+                ))}
+              </ul>
+
+            </article>
+
+            <article className="org-node org-node--bureau">
+
+              <Globe2 size={24} />
+
+              <span>
+                Diplomatic Affairs
+              </span>
+
+              <h3>
+                {diplomaticBureau.title}
+              </h3>
+
+              <ul className="org-roles">
+                {bureauRoles.map((role) => (
+                  <li key={role}>
+                    {role}
+                  </li>
+                ))}
+              </ul>
+
+            </article>
+
+          </div>
+
+          <div className="org-chart__zones">
+
+            {organisationalZones.map((zone) => (
+              <a
+                href="#organisational-leadership"
+                className="org-node org-node--zone"
+                key={zone.id}
               >
 
-                <div className="structure-level__line">
-                  <div className="structure-level__marker">
-                    {item.level}
-                  </div>
+                <MapPinned size={20} />
 
-                  {index < levels.length - 1 && (
-                    <span />
-                  )}
-                </div>
+                <strong>
+                  {zone.code}
+                </strong>
 
-                <div className="structure-level__content">
+                <small>
+                  {zone.name}
+                </small>
 
-                  <Icon size={26} />
+              </a>
+            ))}
 
-                  <h3>
-                    {item.title}
-                  </h3>
+          </div>
 
-                  <p>
-                    {item.description}
-                  </p>
+          <div className="org-chart__zone-office">
 
-                </div>
+            <span>
+              Tier 02 · Every zone
+            </span>
 
-              </article>
-            );
-          })}
+            <ul className="org-roles">
+              {zoneRoles.map((role) => (
+                <li key={role}>
+                  {role}
+                </li>
+              ))}
+            </ul>
+
+            <a href="#organisational-leadership">
+              View office holders
+              <ArrowRight size={16} />
+            </a>
+
+          </div>
 
         </div>
 

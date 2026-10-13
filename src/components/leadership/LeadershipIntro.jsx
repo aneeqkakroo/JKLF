@@ -1,8 +1,8 @@
 import {
   UsersRound,
-  Network,
+  Landmark,
+  Globe2,
   History,
-  FileUser,
 } from "lucide-react";
 
 import {
@@ -17,25 +17,25 @@ const features = [
     icon: UsersRound,
     title: "Current Leadership",
     text:
-      "Clearly identified current office holders and their organisational responsibilities.",
+      "The Chairman, Senior Vice Chairman and Spokesperson who lead and represent JKLF today.",
   },
   {
-    icon: Network,
-    title: "Office Bearers",
+    icon: Landmark,
+    title: "Central Committee",
     text:
-      "A directory of publicly listed organisational and regional positions.",
+      "The highest organisational body, setting policy and directing the work of every zone.",
+  },
+  {
+    icon: Globe2,
+    title: "Six Zones",
+    text:
+      "AJKGB, IOK, UK, Europe, North America and the Gulf, each with its own office holders.",
   },
   {
     icon: History,
-    title: "Historical Leadership",
+    title: "Historical Figures",
     text:
-      "Separate profiles for founders, former leaders and other significant historical figures.",
-  },
-  {
-    icon: FileUser,
-    title: "Biographical Archive",
-    text:
-      "Profiles linked with speeches, documents, interviews and historical events.",
+      "Founders and leaders whose sacrifice and vision shaped the movement for an independent Kashmir.",
   },
 ];
 
@@ -52,28 +52,29 @@ export default function LeadershipIntro() {
             </span>
 
             <h2>
-              A Clear Leadership Directory
+              Who Leads JKLF
             </h2>
           </div>
 
           <div className="leadership-intro__content">
 
             <p className="leadership-large-copy">
-              Current organisational positions should always be
-              clearly distinguished from historical leadership and
-              former office holders.
+              JKLF is led by its Central Committee under the
+              Chairman, with six zones organising the movement in
+              Kashmir and across the diaspora.
             </p>
 
             <p>
-              Individual profiles can provide biographies,
-              responsibilities, speeches, interviews and links to
-              relevant organisational material.
+              Each zone has its own President, Vice Presidents,
+              Chief Organiser, General Secretary, Publication
+              Secretary and Finance Secretary, working under the
+              direction of the Central Committee.
             </p>
 
             <p>
-              Historical profiles can additionally connect people
-              to events, documents and periods elsewhere in the
-              archive.
+              Alongside today's leadership, this page honours the
+              founders and historical figures whose struggle laid the
+              foundations of the movement.
             </p>
 
           </div>
