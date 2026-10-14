@@ -26,7 +26,7 @@ export default function LatestNews() {
           <SectionHeader
             eyebrow="Newsroom"
             title="Latest News & Statements"
-            description="Latest public statements, announcements, speeches and organisational updates."
+            description="Statements, announcements and updates from the Liberation Front."
           />
 
           <Button

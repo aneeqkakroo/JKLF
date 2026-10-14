@@ -1,10 +1,10 @@
 import {
   Scale,
-  Vote,
   ShieldCheck,
-  Landmark,
   Users,
-  MapPinned,
+  HeartHandshake,
+  TrendingUp,
+  Landmark,
 } from "lucide-react";
 
 import {
@@ -15,42 +15,43 @@ import {
 
 import "./position.css";
 
-const governance = [
-  {
-    icon: Vote,
-    title: "Representative Government",
-    text:
-      "Institutions based on public participation and representative political structures.",
-  },
-  {
-    icon: Scale,
-    title: "Rule of Law",
-    text:
-      "Government institutions operating within a clear constitutional and legal framework.",
-  },
+// Article 4(7), 4(10), 4(12) and 4(13) of the constitution.
+const rights = [
   {
     icon: ShieldCheck,
     title: "Fundamental Rights",
     text:
-      "Constitutional protection of civil, political and individual rights.",
+      "Freedom of thought and expression, freedom to propagate one's views, and protection of life, property and honour.",
   },
   {
-    icon: Landmark,
-    title: "Institutional Accountability",
+    icon: Scale,
+    title: "Equality Before All",
     text:
-      "Political institutions subject to democratic oversight and constitutional limits.",
+      "No citizen will suffer injustice because of sex, place of residence, race, language or religion.",
   },
   {
     icon: Users,
-    title: "Equal Citizenship",
+    title: "No Group Above Another",
     text:
-      "Equal political rights regardless of religion, ethnicity, language or region.",
+      "No region, or racial, linguistic or religious group, will hold undue superiority over another.",
   },
   {
-    icon: MapPinned,
-    title: "Regional Representation",
+    icon: HeartHandshake,
+    title: "Minority Rights",
     text:
-      "Structures designed to recognise Jammu Kashmir's geographical and cultural diversity.",
+      "Safeguarding every minority is the centuries-old tradition and moral responsibility of all Kashmiris.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Lifting Backward Areas",
+    text:
+      "Backward areas and communities will be given priority, to bring the whole state to the same educational and economic level.",
+  },
+  {
+    icon: Landmark,
+    title: "Free Movement & Opportunity",
+    text:
+      "Freedom of movement and equal opportunities for political, economic and social advancement for every citizen.",
   },
 ];
 
@@ -61,15 +62,15 @@ export default function GovernancePrinciples() {
       <Container>
 
         <SectionHeader
-          eyebrow="Governance"
-          title="Principles for Democratic Government"
-          description="Themes that can be developed further within the dedicated governance and constitutional sections."
+          eyebrow="Rights of Citizens"
+          title="Every Citizen Equal"
+          description="In a free Jammu Kashmir, these rights will belong to every citizen, whatever their faith, region or language."
           align="center"
         />
 
         <div className="governance-grid">
 
-          {governance.map((item) => {
+          {rights.map((item) => {
             const Icon = item.icon;
 
             return (

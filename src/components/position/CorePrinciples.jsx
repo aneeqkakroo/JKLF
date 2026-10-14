@@ -1,8 +1,8 @@
 import {
-  Landmark,
+  Flag,
+  HeartHandshake,
   Vote,
-  UsersRound,
-  Map,
+  HandHeart,
 } from "lucide-react";
 
 import {
@@ -13,34 +13,35 @@ import {
 
 import "./position.css";
 
+// Article 4(6) and 4(7)(a)–(e): the freedom JKLF seeks.
 const principles = [
   {
     number: "01",
-    title: "Political Independence",
-    icon: Landmark,
+    title: "Independence",
+    icon: Flag,
     description:
-      "The organisation's published objective concerning the future political status of Jammu Kashmir.",
+      "The whole State of Jammu Kashmir reunited as an independent and sovereign country, free from external domination.",
   },
   {
     number: "02",
-    title: "Popular Consent",
-    icon: Vote,
+    title: "Religious Harmony",
+    icon: HeartHandshake,
     description:
-      "Political authority should derive from public participation and the expressed consent of the people.",
+      "Complete freedom for every citizen to choose and practise their religion, beliefs and way of life, with no law against the faith or traditions of any community.",
   },
   {
     number: "03",
-    title: "Equal Citizenship",
-    icon: UsersRound,
+    title: "Democracy",
+    icon: Vote,
     description:
-      "Political and civil rights should apply equally irrespective of religious, regional, ethnic or linguistic identity.",
+      "Government founded on democracy, equality, social justice and human brotherhood, protecting free thought, free expression and equal opportunity.",
   },
   {
     number: "04",
-    title: "Regional Diversity",
-    icon: Map,
+    title: "Welfare System",
+    icon: HandHeart,
     description:
-      "Political institutions should recognise the different regions, communities and identities within Jammu Kashmir.",
+      "Basic necessities, medical treatment, education and employment as duties of the state, with support for the unemployed and priority for backward areas.",
   },
 ];
 
@@ -54,9 +55,9 @@ export default function CorePrinciples() {
       <Container>
 
         <SectionHeader
-          eyebrow="Core Principles"
-          title="Four Themes at the Centre of the Programme"
-          description="A concise overview of recurring themes within the organisation's stated political philosophy."
+          eyebrow="Ultimate Freedom"
+          title="The Free Jammu Kashmir We Seek"
+          description="Our ultimate objective is freedom: an independent country whose society is built on these four principles."
         />
 
         <div className="position-principle-grid">

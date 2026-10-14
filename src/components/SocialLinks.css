@@ -1,0 +1,37 @@
+.social-links {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid currentColor;
+  border-radius: 50%;
+
+  opacity: 0.75;
+
+  transition:
+    opacity var(--transition),
+    background var(--transition),
+    transform var(--transition);
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+  opacity: 1;
+
+  transform: translateY(-2px);
+}

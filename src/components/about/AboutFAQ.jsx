@@ -16,27 +16,32 @@ const questions = [
   {
     question: "What is the Jammu Kashmir Liberation Front?",
     answer:
-      "This section will provide a concise description of the organisation, its history and its published political objectives.",
+      "JKLF is a Kashmiri national liberation movement founded in 1977. We struggle to reunite the whole State of Jammu Kashmir, as it existed on 14 August 1947, as a single independent, sovereign and democratic country.",
   },
   {
     question: "What political position does JKLF advocate?",
     answer:
-      "The website's Political Position section will explain the organisation's published position in detail and provide links to relevant primary documents.",
+      "We believe the people of Jammu Kashmir have the right to self-determination, and that their homeland should be neither part of India nor part of Pakistan, but a sovereign state of its own. Our Political Position section explains this in detail.",
   },
   {
-    question: "Where can I read JKLF's constitution and political programme?",
+    question: "Who can join JKLF?",
     answer:
-      "Primary organisational documents will be available through the searchable Documents archive.",
+      "Any state subject of Jammu Kashmir aged over 18, man or woman, wherever they were born or now live, who accepts our constitution and ideology. Members may not belong to another Kashmiri, Pakistani or Indian political party.",
   },
   {
-    question: "Where can I find information about JKLF's history?",
+    question: "Where can I read JKLF's constitution?",
     answer:
-      "The History section will contain a chronological archive covering both the wider political history of Jammu Kashmir and the organisational history of JKLF.",
+      "The full English translation of our constitution is linked on this page and available in our Documents archive.",
   },
   {
-    question: "How does the website handle disputed historical claims?",
+    question: "Who leads JKLF?",
     answer:
-      "Where an issue is contested, the website should clearly distinguish JKLF's stated position from government positions, independent reporting and historical scholarship, with sources provided wherever possible.",
+      "JKLF is led by Chairman Mohammad Yasin Malik and the central officers elected by our Supreme Council, the 60-member body representing every zone. A Diplomatic Bureau represents us internationally.",
+  },
+  {
+    question: "Is JKLF a religious party?",
+    answer:
+      "No. Our constitution guarantees every citizen of a free Jammu Kashmir complete freedom to choose and practise their religion, and calls sectarian, racial, linguistic and regional division a deadly poison to the national cause.",
   },
 ];
 
@@ -59,7 +64,7 @@ export default function AboutFAQ() {
           <SectionHeader
             eyebrow="Frequently Asked Questions"
             title="About JKLF"
-            description="Straightforward answers to common questions, with links to more detailed sections of the website."
+            description="Answers to the questions we are asked most often."
           />
 
           <div className="faq-list">

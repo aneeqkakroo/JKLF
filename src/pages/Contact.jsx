@@ -4,6 +4,7 @@ import ContactIntro from "../components/contact/ContactIntro";
 import ContactForm from "../components/contact/ContactForm";
 import ContactInformation from "../components/contact/ContactInformation";
 import ContactCTA from "../components/contact/ContactCTA";
+import FollowUs from "../components/home/FollowUs";
 
 import contactHero from "../assets/images/contact-hero.png";
 
@@ -22,6 +23,8 @@ export default function Contact() {
       <ContactForm />
 
       <ContactInformation />
+
+      <FollowUs />
 
       <ContactCTA />
     </>

@@ -1,8 +1,14 @@
 import {
-  Globe2,
-  MapPin,
   ArrowRight,
+  Globe2,
+  Landmark,
+  MapPin,
 } from "lucide-react";
+
+import {
+  diplomaticBureau,
+  organisationalZones,
+} from "../../data/leadership";
 
 import {
   Button,
@@ -12,15 +18,6 @@ import {
 
 import "./home.css";
 
-const regions = [
-  "Indian Occupied Jammu & Kashmir",
-  "Azad Jammu Kashmir Gilgit Baltistan",
-  "United Kingdom",
-  "Europe",
-  "North America",
-  "Gulf",
-];
-
 export default function InternationalPresence() {
   return (
     <Section variant="soft">
@@ -28,44 +25,84 @@ export default function InternationalPresence() {
 
         <div className="international">
 
-          <div className="international__visual">
-            <Globe2 size={88} />
-
-            <div className="international__rings ring-1" />
-            <div className="international__rings ring-2" />
-            <div className="international__rings ring-3" />
-          </div>
-
           <div className="international__content">
 
             <span className="ui-eyebrow">
-              International
+              Organisation
             </span>
 
-            <h2>JKLF Around the World</h2>
+            <h2>
+              One Movement, Around the World
+            </h2>
 
             <p>
-              This area can document publicly recognised
-              organisational history, political engagement,
-              conferences and international activity by region.
+              Wherever Kashmiris live, the struggle for freedom is
+              their duty. Our zones organise that struggle in every
+              part of the state and across the diaspora, under one
+              constitution and one leadership.
             </p>
 
-            <div className="international__regions">
-              {regions.map((region) => (
-                <div key={region}>
-                  <MapPin size={16} />
-                  {region}
-                </div>
-              ))}
-            </div>
-
             <Button
-              to="/about"
+              to="/leadership"
               variant="outline"
             >
-              Explore International Presence
+              Explore our organisation
               <ArrowRight size={17} />
             </Button>
+
+          </div>
+
+          <div className="international__structure">
+
+            <article className="international__card international__card--lead">
+              <Landmark size={24} />
+
+              <div>
+                <h3>
+                  Supreme Council
+                </h3>
+
+                <p>
+                  60 representatives from every zone: our highest
+                  policy-making body.
+                </p>
+              </div>
+            </article>
+
+            <article className="international__card">
+              <Globe2 size={24} />
+
+              <div>
+                <h3>
+                  {diplomaticBureau.title}
+                </h3>
+
+                <p>
+                  Representing the Kashmiri nation to governments
+                  and international organisations.
+                </p>
+              </div>
+            </article>
+
+            <ul className="international__zones">
+              {organisationalZones.map((zone) => (
+                <li key={zone.id}>
+                  <MapPin size={16} />
+
+                  <div>
+                    <strong>
+                      {zone.code}
+                    </strong>
+
+                    {zone.code !== zone.name && (
+                      <span>
+                        {zone.name}
+                      </span>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
 
           </div>
 

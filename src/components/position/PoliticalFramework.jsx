@@ -1,7 +1,9 @@
 import {
-  ArrowRight,
   CircleDot,
+  ExternalLink,
 } from "lucide-react";
+
+import { constitution } from "../../data/constitution";
 
 import {
   Button,
@@ -11,30 +13,37 @@ import {
 
 import "./position.css";
 
-const stages = [
+// A selection from Article 5 (Aims and Objectives) of the constitution.
+const aims = [
   {
     number: "01",
-    title: "Political Dialogue",
+    title: "End the Forcible Division",
     text:
-      "A political process involving relevant parties and affected communities.",
+      "Free the State of Jammu Kashmir from external domination and make it a sovereign country, with a dignified place among the nations of the world.",
   },
   {
     number: "02",
-    title: "Public Participation",
+    title: "Reunite a Divided People",
     text:
-      "A meaningful role for the population in determining future political arrangements.",
+      "Build practical links between patriotic Kashmiris in every part of the state, separated by its present division, and unite them in one struggle.",
   },
   {
     number: "03",
-    title: "Constitutional Framework",
+    title: "An Interim Government of the Whole State",
     text:
-      "Development of democratic institutions and constitutional protections.",
+      "Until the whole state is free, establish in the liberated territories — Azad Kashmir and Gilgit-Baltistan — an independent, sovereign and democratic interim government, in the spirit of the Azad Government of 4 October 1947.",
   },
   {
     number: "04",
-    title: "Regional Representation",
+    title: "Take Our Case to the World",
     text:
-      "Institutional recognition of the different regions and communities within Jammu Kashmir.",
+      "Present the Kashmir issue internationally as the national liberation struggle of the Kashmiri people, and win global support for the sovereignty of the whole state.",
+  },
+  {
+    number: "05",
+    title: "Protect Our Identity",
+    text:
+      "Safeguard the cultural and civilisational values and the Kashmiri identity of the people of the state, and teach its true history.",
   },
 ];
 
@@ -52,36 +61,39 @@ export default function PoliticalFramework() {
           <div className="political-framework__intro">
 
             <span className="ui-eyebrow">
-              Political Framework
+              Aims & Objectives
             </span>
 
             <h2>
-              How a Future Political Settlement Could Be Discussed
+              What We Are Working Towards
             </h2>
 
             <p>
-              This section can summarise the organisation's
-              proposed political process while allowing the
-              dedicated policy pages to explain specific
-              constitutional questions in detail.
+              Our constitution sets out the aims of the Liberation
+              Front: to free the whole state and establish within it
+              a government and society based on individual freedom,
+              democracy, equality, human brotherhood and social
+              justice.
             </p>
 
             <Button
-              to="/position/political-settlement"
+              href={constitution.url}
+              target="_blank"
+              rel="noreferrer"
               variant="outline"
             >
-              Political Settlement
-              <ArrowRight size={17} />
+              Read Article 5 in full
+              <ExternalLink size={16} />
             </Button>
 
           </div>
 
           <div className="political-framework__steps">
 
-            {stages.map((stage) => (
+            {aims.map((aim) => (
               <article
                 className="framework-step"
-                key={stage.number}
+                key={aim.number}
               >
 
                 <div className="framework-step__marker">
@@ -91,15 +103,15 @@ export default function PoliticalFramework() {
                 <div className="framework-step__content">
 
                   <span>
-                    {stage.number}
+                    {aim.number}
                   </span>
 
                   <h3>
-                    {stage.title}
+                    {aim.title}
                   </h3>
 
                   <p>
-                    {stage.text}
+                    {aim.text}
                   </p>
 
                 </div>

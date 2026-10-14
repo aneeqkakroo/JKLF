@@ -9,30 +9,42 @@ import {
 import "./home.css";
 
 const points = [
-  "Historical origins and development",
-  "Political philosophy and programme",
-  "Democratic political activity",
-  "Organisation and international presence",
+  "One constitution and one leadership in every part of the state",
+  "A Supreme Council elected from every zone",
+  "A Diplomatic Bureau representing Kashmir to the world",
+  "Branches across Kashmir, the UK, Europe, North America and the Gulf",
 ];
 
 export default function WhoWeAre() {
   return (
-    <Section variant="soft">
+    <Section
+      id="mission"
+      variant="soft"
+    >
 
       <Container>
         <div className="who-we-are">
 
-          <div className="who-we-are__image">
+          <figure className="who-we-are__quote">
+
             <img
-              src="/src/assets/images/about-kashmir.jpg"
-              alt="Landscape of Jammu Kashmir"
+              src="/images/maqboolbhat.jpg"
+              alt="Shaheed Maqbool Bhat"
             />
 
-            <div className="who-we-are__image-label">
-              <strong>Explore</strong>
-              <span>JKLF history and archive</span>
-            </div>
-          </div>
+            <blockquote>
+              <p>
+                “Passion for the beloved freedom is as essential as
+                breath is for preserving life.”
+              </p>
+
+              <figcaption>
+                Shaheed Muhammad Maqbool Bhat
+                <span>Father of the Nation</span>
+              </figcaption>
+            </blockquote>
+
+          </figure>
 
           <div className="who-we-are__content">
 
@@ -41,20 +53,22 @@ export default function WhoWeAre() {
             </span>
 
             <h2>
-              A Political Movement with a Long History
+              A National Liberation Movement
             </h2>
 
             <p className="who-we-are__lead">
-              This section introduces JKLF's history, political
-              development, organisational structure and published
-              political positions.
+              The Kashmir issue is not a territorial dispute between
+              India and Pakistan. It is the question of the national
+              freedom and reunification of a forcibly divided
+              nation.
             </p>
 
             <p>
-              The full About section will provide visitors with
-              access to historical information, constitutional
-              material, leadership information and primary-source
-              documents.
+              Since 1977 the Jammu Kashmir Liberation Front has
+              struggled to end that division. Reunited in 2011, we
+              are today the only Kashmiri organisation working under
+              one constitution in all three parts of the state and
+              across the diaspora.
             </p>
 
             <ul className="who-we-are__points">
@@ -66,8 +80,11 @@ export default function WhoWeAre() {
               ))}
             </ul>
 
-            <Button to="/about" variant="outline">
-              Read Our Story
+            <Button
+              to="/about"
+              variant="outline"
+            >
+              Read our story
               <ArrowRight size={17} />
             </Button>
 

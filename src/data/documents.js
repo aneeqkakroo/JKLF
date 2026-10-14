@@ -3,11 +3,11 @@ export const documents = [
     id: "jklf-constitution",
     title: "JKLF Constitution",
     category: "Constitution",
-    year: "Current",
-    date: "Current",
+    year: "2012",
+    date: "21 April 2012",
     description:
-      "The organisation's constitution, internal governance provisions and formal organisational framework.",
-    file: null,
+      "The Fundamental Constitution of the Jammu Kashmir Liberation Front (English translation): ideology, aims and objectives, membership, organisational structure, elections and the party flag.",
+    file: "/documents/JKLF_Constitution_English.pdf",
   },
   {
     id: "political-programme",

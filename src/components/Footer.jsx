@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { Container } from "./ui";
+import SocialLinks from "./SocialLinks";
 
 import "./Footer.css";
 
@@ -42,9 +43,11 @@ export default function Footer() {
             <h3>Jammu Kashmir Liberation Front</h3>
 
             <p>
-              Information, history, documentation and political
-              publications relating to Jammu Kashmir and JKLF.
+              Our objective: national independence. Struggle until
+              victory.
             </p>
+
+            <SocialLinks className="footer-social" />
           </div>
 
           {Object.entries(footerLinks).map(([title, links]) => (

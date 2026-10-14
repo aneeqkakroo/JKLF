@@ -1,31 +1,29 @@
-// src/pages/Home.jsx
-
 import Hero from "../components/home/Hero";
-import Priorities from "../components/home/Priorities";
 import WhoWeAre from "../components/home/WhoWeAre";
 import Vision from "../components/home/Vision";
 import KashmirMap from "../components/home/KashmirMap";
-import LatestNews from "../components/home/LatestNews";
+import LeadershipPreview from "../components/home/LeadershipPreview";
 import FeaturedIssue from "../components/home/FeaturedIssue";
 import HistoryPreview from "../components/home/HistoryPreview";
-import ResourcePreview from "../components/home/ResourcePreview";
 import InternationalPresence from "../components/home/InternationalPresence";
-import Newsletter from "../components/home/Newsletter";
+import LatestNews from "../components/home/LatestNews";
+import ResourcePreview from "../components/home/ResourcePreview";
+import FollowUs from "../components/home/FollowUs";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Priorities />
       <WhoWeAre />
       <Vision />
       <KashmirMap />
-      <LatestNews />
+      <LeadershipPreview />
       <FeaturedIssue />
-      <HistoryPreview />
-      <ResourcePreview />
       <InternationalPresence />
-      <Newsletter />
+      <HistoryPreview />
+      <LatestNews />
+      <ResourcePreview />
+      <FollowUs />
     </>
   );
 }

@@ -1,7 +1,4 @@
-import {
-  ArrowRight,
-  Clock3,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import {
   Button,
@@ -9,28 +6,9 @@ import {
   Section,
 } from "../ui";
 
-import "./about.css";
+import { timeline } from "../../data/timeline";
 
-const periods = [
-  {
-    date: "Early Period",
-    title: "Political Origins",
-    text:
-      "Background material explaining the political organisations, individuals and ideas associated with the movement's early development.",
-  },
-  {
-    date: "Development",
-    title: "Formation and Organisation",
-    text:
-      "An overview of the organisation's formal development and emerging political programme.",
-  },
-  {
-    date: "Later Period",
-    title: "Expansion and Political Change",
-    text:
-      "The development of organisational structures and political activity across Jammu Kashmir and internationally.",
-  },
-];
+import "./about.css";
 
 export default function Origins() {
   return (
@@ -44,58 +22,56 @@ export default function Origins() {
 
           <div>
             <span className="ui-eyebrow">
-              Origins & Development
+              Our Story
             </span>
 
             <h2>
-              A Movement Shaped by the Political History of Jammu Kashmir
+              Decades of Struggle for a Free Kashmir
             </h2>
           </div>
 
           <div>
             <p>
-              The detailed History section will provide a sourced
-              chronology. The About page instead gives visitors a
-              concise introduction to the organisation's development.
+              Our movement grew from the conviction that Kashmir's
+              future must be decided by Kashmiris. These are some of
+              the moments that shaped it.
             </p>
 
             <Button
               to="/history"
               variant="outline"
             >
-              Explore Full History
+              Explore our full history
               <ArrowRight size={17} />
             </Button>
           </div>
 
         </div>
 
-        <div className="origins-timeline">
+        <ol className="story-timeline">
 
-          {periods.map((period, index) => (
-            <div
-              className="origin-period"
-              key={period.title}
+          {timeline.map((milestone) => (
+            <li
+              className="story-milestone"
+              key={milestone.title}
             >
 
-              <div className="origin-period__number">
-                {String(index + 1).padStart(2, "0")}
-              </div>
+              <span className="story-milestone__year">
+                {milestone.year}
+              </span>
 
-              <div className="origin-period__icon">
-                <Clock3 size={18} />
-              </div>
+              <h3>
+                {milestone.title}
+              </h3>
 
-              <span>{period.date}</span>
+              <p>
+                {milestone.description}
+              </p>
 
-              <h3>{period.title}</h3>
-
-              <p>{period.text}</p>
-
-            </div>
+            </li>
           ))}
 
-        </div>
+        </ol>
 
       </Container>
     </Section>

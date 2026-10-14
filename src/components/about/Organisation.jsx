@@ -1,103 +1,154 @@
 import {
-  UsersRound,
-  MapPin,
+  ArrowRight,
   Globe2,
-  Network,
+  Landmark,
+  MapPinned,
+  UsersRound,
 } from "lucide-react";
 
 import {
+  centralCommittee,
+  diplomaticBureau,
+  organisationalZones,
+} from "../../data/leadership";
+
+import {
+  Button,
   Container,
   Section,
   SectionHeader,
 } from "../ui";
 
-import { Link } from "react-router-dom";
-
 import "./about.css";
 
-const organisationLevels = [
+// Seat allocation from Article 8(1)(a) of the constitution.
+const supremeCouncilSeats = [
   {
-    icon: Network,
-    title: "Central Organisation",
-    description:
-      "Information concerning central organisational structures, offices and responsibilities.",
+    zone: "Occupied Kashmir",
+    seats: 31,
   },
   {
-    icon: MapPin,
-    title: "Regional Structures",
-    description:
-      "Publicly documented organisational structures operating across different regions.",
+    zone: "Azad Kashmir & Gilgit-Baltistan",
+    seats: 19,
   },
   {
-    icon: Globe2,
-    title: "International Chapters",
-    description:
-      "Information concerning publicly recognised branches and organisational activity outside the region.",
-  },
-  {
-    icon: UsersRound,
-    title: "Office Bearers",
-    description:
-      "Current leadership and office-holder information maintained in a dedicated leadership directory.",
+    zone: "Overseas",
+    seats: 10,
   },
 ];
 
 export default function Organisation() {
   return (
-    <Section
-      id="organisation"
-      variant="soft"
-    >
+    <Section id="organisation">
+
       <Container>
 
-        <SectionHeader
-          eyebrow="Organisation"
-          title="How JKLF Is Organised"
-          description="A clear directory of publicly documented organisational structures, offices and responsibilities."
-          align="center"
-        />
+        <div className="key-figures__heading">
 
-        <div className="organisation-grid">
+          <SectionHeader
+            eyebrow="Organisation"
+            title="How JKLF Is Organised"
+            description="One constitution and one leadership, with elections at every level held every three years."
+          />
 
-          {organisationLevels.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <article
-                className="organisation-card"
-                key={item.title}
-              >
-
-                <div className="organisation-card__icon">
-                  <Icon size={25} />
-                </div>
-
-                <h3>{item.title}</h3>
-
-                <p>{item.description}</p>
-
-              </article>
-            );
-          })}
+          <Button
+            to="/leadership"
+            variant="outline"
+          >
+            Meet our leadership
+            <ArrowRight size={17} />
+          </Button>
 
         </div>
 
-        <div className="organisation-note">
+        <div className="organisation-grid">
 
-          <div>
-            <strong>
-              Organisational transparency
-            </strong>
+          <article className="organisation-card organisation-card--lead">
+
+            <div className="organisation-card__icon">
+              <UsersRound size={25} />
+            </div>
+
+            <h3>
+              Supreme Council
+            </h3>
 
             <p>
-              Current office holders should be clearly distinguished
-              from historical leaders and former office holders.
+              Our highest policy-making body: 60 representatives
+              from every zone, who elect the central officers and
+              set the Front's policy and strategy.
             </p>
-          </div>
 
-          <Link to="/leadership">
-            View Leadership Directory →
-          </Link>
+            <ul className="organisation-seats">
+              {supremeCouncilSeats.map((item) => (
+                <li key={item.zone}>
+                  <strong>
+                    {item.seats}
+                  </strong>
+
+                  {item.zone}
+                </li>
+              ))}
+            </ul>
+
+          </article>
+
+          <article className="organisation-card">
+
+            <div className="organisation-card__icon">
+              <Landmark size={25} />
+            </div>
+
+            <h3>
+              {centralCommittee.title}
+            </h3>
+
+            <p>
+              {centralCommittee.description}
+            </p>
+
+          </article>
+
+          <article className="organisation-card">
+
+            <div className="organisation-card__icon">
+              <Globe2 size={25} />
+            </div>
+
+            <h3>
+              {diplomaticBureau.title}
+            </h3>
+
+            <p>
+              {diplomaticBureau.description}
+            </p>
+
+          </article>
+
+          <article className="organisation-card">
+
+            <div className="organisation-card__icon">
+              <MapPinned size={25} />
+            </div>
+
+            <h3>
+              {organisationalZones.length} Zones
+            </h3>
+
+            <p>
+              Each zone elects its own office holders and organises
+              our work locally.
+            </p>
+
+            <ul className="organisation-zones">
+              {organisationalZones.map((zone) => (
+                <li key={zone.id}>
+                  {zone.code}
+                </li>
+              ))}
+            </ul>
+
+          </article>
 
         </div>
 

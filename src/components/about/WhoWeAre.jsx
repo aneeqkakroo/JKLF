@@ -1,43 +1,9 @@
 import {
-  Compass,
-  BookOpen,
-  Users,
-  Globe2,
-} from "lucide-react";
-
-import {
   Container,
   Section,
 } from "../ui";
 
 import "./about.css";
-
-const facts = [
-  {
-    icon: Compass,
-    label: "Political Movement",
-    description:
-      "An organisation centred on the political future and status of Jammu Kashmir.",
-  },
-  {
-    icon: BookOpen,
-    label: "Historical Organisation",
-    description:
-      "A political history spanning several decades and different phases of activity.",
-  },
-  {
-    icon: Users,
-    label: "Organisation",
-    description:
-      "A movement with organisational structures, leadership and supporters across different regions.",
-  },
-  {
-    icon: Globe2,
-    label: "International Activity",
-    description:
-      "A history of political campaigning and engagement beyond Jammu Kashmir.",
-  },
-];
 
 export default function WhoWeAre() {
   return (
@@ -54,7 +20,7 @@ export default function WhoWeAre() {
             </span>
 
             <h2>
-              Understanding JKLF
+              A Movement for a Free and United Kashmir
             </h2>
 
           </div>
@@ -62,51 +28,39 @@ export default function WhoWeAre() {
           <div className="about-intro__text">
 
             <p className="about-large-copy">
-              The Jammu Kashmir Liberation Front is a political
-              organisation whose history forms part of the wider
-              modern political history of Jammu Kashmir.
+              The Kashmir issue is not a territorial dispute between
+              India and Pakistan. It is the question of the national
+              freedom and reunification of a forcibly divided nation.
             </p>
 
             <p>
-              This website is intended to provide a structured
-              record of the organisation, its published political
-              positions, historical development, documents,
-              leadership and public activity.
+              The Jammu Kashmir Liberation Front struggles to free
+              the whole State of Jammu Kashmir — every territory
+              that formed part of it on 14 August 1947 — from
+              external domination, and to make it an independent,
+              sovereign country with a dignified place among the
+              nations of the world.
             </p>
 
             <p>
-              Historical and political material should distinguish
-              organisational positions from independently
-              verifiable historical information, government
-              positions and other interpretations where relevant.
+              We are the only Kashmiri organisation working under
+              one constitution and one leadership in all three parts
+              of the state and across the diaspora, bringing together
+              people of every region, faith and language in a single
+              national struggle.
             </p>
 
           </div>
 
         </div>
 
-        <div className="about-fact-grid">
-
-          {facts.map((fact) => {
-            const Icon = fact.icon;
-
-            return (
-              <div
-                className="about-fact"
-                key={fact.label}
-              >
-
-                <Icon size={24} />
-
-                <h3>{fact.label}</h3>
-
-                <p>{fact.description}</p>
-
-              </div>
-            );
-          })}
-
-        </div>
+        <blockquote className="about-statement">
+          <p>
+            Our objective: national independence.
+            <br />
+            Struggle until victory.
+          </p>
+        </blockquote>
 
       </Container>
 

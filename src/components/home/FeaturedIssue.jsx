@@ -1,10 +1,8 @@
 import {
   ArrowRight,
-  User,
-  Clock3,
+  Landmark,
+  MapPin,
   Scale,
-  FileText,
-  Newspaper,
 } from "lucide-react";
 
 import {
@@ -15,88 +13,85 @@ import {
 
 import "./home.css";
 
-const links = [
+const facts = [
   {
-    label: "Biography",
-    icon: User,
+    label: "Role",
+    value: "Chairman, JKLF",
+    icon: Landmark,
   },
   {
-    label: "Case Timeline",
-    icon: Clock3,
-  },
-  {
-    label: "Legal Documents",
+    label: "Status",
+    value: "Serving a life sentence",
     icon: Scale,
   },
   {
-    label: "Statements",
-    icon: FileText,
-  },
-  {
-    label: "Media Coverage",
-    icon: Newspaper,
+    label: "Held in",
+    value: "Tihar Jail, New Delhi",
+    icon: MapPin,
   },
 ];
 
 export default function FeaturedIssue() {
   return (
-    <Section>
+    <Section
+      variant="dark"
+      className="featured-issue-section"
+    >
       <Container>
 
         <div className="featured-issue">
 
+          <div className="featured-issue__visual">
+            <img
+              src="/images/yasinmalik.jpg"
+              alt="JKLF Chairman Mohammad Yasin Malik"
+            />
+          </div>
+
           <div className="featured-issue__content">
 
             <span className="ui-eyebrow">
-              Featured Case File
+              Our Chairman
             </span>
 
-            <h2>The Case of Yasin Malik</h2>
+            <h2>
+              Mohammad Yasin Malik
+            </h2>
 
             <p className="featured-issue__lead">
-              A structured archive can bring together biographical
-              material, case chronology, court records, public
-              statements and independent reporting in one place.
+              The Chairman of the Jammu Kashmir Liberation Front is
+              imprisoned in Tihar Jail, New Delhi, where he is
+              serving a life sentence. In his absence, Senior Vice
+              Chairman Raja Haq Nawaz leads the Front.
             </p>
 
-            <div className="featured-issue__links">
-              {links.map((item) => {
-                const Icon = item.icon;
+            <dl className="featured-issue__facts">
+              {facts.map((fact) => {
+                const Icon = fact.icon;
 
                 return (
-                  <div key={item.label}>
-                    <Icon size={18} />
-                    {item.label}
+                  <div key={fact.label}>
+                    <dt>
+                      <Icon size={16} />
+                      {fact.label}
+                    </dt>
+
+                    <dd>
+                      {fact.value}
+                    </dd>
                   </div>
                 );
               })}
-            </div>
+            </dl>
 
             <Button
-              to="/documents"
-              variant="primary"
+              to="/leadership/current-leader-1"
+              variant="white"
             >
-              View Case File
+              Read his profile
               <ArrowRight size={17} />
             </Button>
 
-          </div>
-
-          <div className="featured-issue__visual">
-            <img
-              src="/src/assets/images/featured-yasin-malik.jpg"
-              alt=""
-            />
-
-            <div className="featured-issue__visual-overlay">
-              <span>
-                DOCUMENTATION
-              </span>
-
-              <strong>
-                Biography · Timeline · Legal Records
-              </strong>
-            </div>
           </div>
 
         </div>

@@ -1,9 +1,13 @@
 import {
   FileText,
-  BookOpenText,
+  Flag,
   Library,
   ArrowRight,
 } from "lucide-react";
+
+import { Link } from "react-router-dom";
+
+import { constitution } from "../../data/constitution";
 
 import {
   Button,
@@ -12,30 +16,6 @@ import {
 } from "../ui";
 
 import "./position.css";
-
-const documents = [
-  {
-    type: "Primary Document",
-    title: "Political Programme",
-    description:
-      "The principal published document outlining the organisation's political objectives and proposed framework.",
-    icon: BookOpenText,
-  },
-  {
-    type: "Organisational Document",
-    title: "JKLF Constitution",
-    description:
-      "The organisation's constitutional structure, internal governance provisions and formal framework.",
-    icon: FileText,
-  },
-  {
-    type: "Archive",
-    title: "Political Resolutions",
-    description:
-      "A searchable archive of formal resolutions, statements and other political documents.",
-    icon: Library,
-  },
-];
 
 export default function PositionDocuments() {
   return (
@@ -54,12 +34,12 @@ export default function PositionDocuments() {
             </span>
 
             <h2>
-              Read the Documents
+              Read It in Our Own Words
             </h2>
 
             <p>
-              Detailed political pages should link directly to
-              primary organisational documents whenever possible.
+              Everything on this page is drawn from the Fundamental
+              Constitution of the Jammu Kashmir Liberation Front.
             </p>
           </div>
 
@@ -75,37 +55,89 @@ export default function PositionDocuments() {
 
         <div className="position-document-grid">
 
-          {documents.map((document) => {
-            const Icon = document.icon;
+          <a
+            className="position-document-card"
+            href={constitution.url}
+            target="_blank"
+            rel="noreferrer"
+          >
 
-            return (
-              <article
-                className="position-document-card"
-                key={document.title}
-              >
+            <FileText size={27} />
 
-                <Icon size={27} />
+            <span>
+              PDF · {constitution.language}
+            </span>
 
-                <span>
-                  {document.type}
-                </span>
+            <h3>
+              {constitution.title}
+            </h3>
 
-                <h3>
-                  {document.title}
-                </h3>
+            <p>
+              Approved on {constitution.approved}. Our ideology,
+              aims and objectives, membership, organisation and
+              elections.
+            </p>
 
-                <p>
-                  {document.description}
-                </p>
+            <div className="position-document-card__link">
+              Open document
+              <ArrowRight size={16} />
+            </div>
 
-                <div className="position-document-card__link">
-                  View document
-                  <ArrowRight size={16} />
-                </div>
+          </a>
 
-              </article>
-            );
-          })}
+          <Link
+            className="position-document-card"
+            to="/about#flag"
+          >
+
+            <Flag size={27} />
+
+            <span>
+              Article 18
+            </span>
+
+            <h3>
+              Our Flag
+            </h3>
+
+            <p>
+              What the green, red and white of the JKLF flag
+              represent.
+            </p>
+
+            <div className="position-document-card__link">
+              Learn more
+              <ArrowRight size={16} />
+            </div>
+
+          </Link>
+
+          <Link
+            className="position-document-card"
+            to="/documents"
+          >
+
+            <Library size={27} />
+
+            <span>
+              Archive
+            </span>
+
+            <h3>
+              Statements & Resolutions
+            </h3>
+
+            <p>
+              Resolutions, memoranda, statements and historical
+              documents of the Liberation Front.
+            </p>
+
+            <div className="position-document-card__link">
+              Browse the archive
+              <ArrowRight size={16} />
+            </div>
+
+          </Link>
 
         </div>
 

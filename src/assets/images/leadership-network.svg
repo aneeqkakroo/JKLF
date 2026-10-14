@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" role="img" aria-labelledby="t">
+  <title id="t">JKLF organisation: Central Committee linked to the Diplomatic Bureau and six zones, over the mountains of Kashmir</title>
+
+  <defs>
+    <radialGradient id="sky" cx="50%" cy="30%" r="80%">
+      <stop offset="0" stop-color="#0f7a45"/>
+      <stop offset="0.55" stop-color="#074a29"/>
+      <stop offset="1" stop-color="#03200f"/>
+    </radialGradient>
+
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="ridgeFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c6b45"/>
+      <stop offset="1" stop-color="#0a3d23"/>
+    </linearGradient>
+
+    <linearGradient id="ridgeMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d5531"/>
+      <stop offset="1" stop-color="#06301a"/>
+    </linearGradient>
+
+    <linearGradient id="ridgeNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#062f19"/>
+      <stop offset="1" stop-color="#021208"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1200" height="1000" fill="url(#sky)"/>
+
+  <!-- Stars -->
+  <g fill="#ffffff">
+    <circle cx="90" cy="80" r="1.6" opacity="0.6"/>
+    <circle cx="210" cy="150" r="1.2" opacity="0.45"/>
+    <circle cx="320" cy="60" r="1.8" opacity="0.55"/>
+    <circle cx="450" cy="120" r="1.1" opacity="0.4"/>
+    <circle cx="760" cy="70" r="1.5" opacity="0.5"/>
+    <circle cx="980" cy="110" r="1.9" opacity="0.6"/>
+    <circle cx="1110" cy="60" r="1.2" opacity="0.45"/>
+    <circle cx="1060" cy="200" r="1.4" opacity="0.4"/>
+    <circle cx="140" cy="260" r="1.1" opacity="0.35"/>
+    <circle cx="1150" cy="330" r="1.3" opacity="0.35"/>
+    <circle cx="40" cy="380" r="1.4" opacity="0.3"/>
+    <circle cx="660" cy="40" r="1.1" opacity="0.4"/>
+  </g>
+
+  <!-- Orbits around the Central Committee -->
+  <g fill="none" stroke="#ffffff">
+    <circle cx="600" cy="330" r="130" stroke-opacity="0.10"/>
+    <circle cx="600" cy="330" r="230" stroke-opacity="0.07"/>
+    <circle cx="600" cy="330" r="340" stroke-opacity="0.05"/>
+  </g>
+
+  <!-- Mountains of Kashmir -->
+  <path fill="url(#ridgeFar)" opacity="0.9"
+    d="M0 700 L90 630 L150 660 L250 560 L320 610 L400 520 L470 580 L560 500 L640 570 L720 510 L800 575 L880 520 L960 590 L1050 540 L1120 600 L1200 560 L1200 1000 L0 1000 Z"/>
+  <g fill="#ffffff" opacity="0.18">
+    <path d="M250 560 L228 582 L246 578 L258 590 L272 574 Z"/>
+    <path d="M400 520 L378 544 L396 540 L408 552 L424 536 Z"/>
+    <path d="M560 500 L536 526 L556 520 L568 534 L586 516 Z"/>
+    <path d="M720 510 L698 534 L716 530 L730 542 L744 526 Z"/>
+    <path d="M880 520 L858 543 L876 539 L888 550 L902 536 Z"/>
+    <path d="M1050 540 L1030 560 L1046 557 L1058 566 L1070 554 Z"/>
+  </g>
+  <path fill="url(#ridgeMid)"
+    d="M0 790 L110 720 L200 760 L300 690 L390 750 L500 680 L590 740 L690 690 L790 755 L900 700 L1000 760 L1100 715 L1200 750 L1200 1000 L0 1000 Z"/>
+  <path fill="url(#ridgeNear)"
+    d="M0 880 L140 820 L260 860 L380 810 L520 870 L640 830 L780 880 L900 835 L1040 875 L1200 830 L1200 1000 L0 1000 Z"/>
+
+  <!-- Links: Central Committee to zones -->
+  <g stroke="#ffffff" stroke-opacity="0.32" stroke-width="1.5" fill="none">
+    <path d="M600 330 Q 380 400 170 600"/>
+    <path d="M600 330 Q 430 450 330 680"/>
+    <path d="M600 330 Q 520 500 490 740"/>
+    <path d="M600 330 Q 680 500 710 740"/>
+    <path d="M600 330 Q 770 450 870 680"/>
+    <path d="M600 330 Q 820 400 1030 600"/>
+  </g>
+
+  <!-- Link: Central Committee to Diplomatic Bureau (reports directly) -->
+  <path d="M600 330 L 930 210" stroke="#ffffff" stroke-opacity="0.55" stroke-width="1.5" stroke-dasharray="6 7" fill="none"/>
+
+  <!-- Diplomatic Bureau -->
+  <g>
+    <circle cx="930" cy="210" r="48" fill="url(#glow)"/>
+    <circle cx="930" cy="210" r="22" fill="#074a29" stroke="#ffffff" stroke-opacity="0.75" stroke-width="2"/>
+    <g fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-width="1.6">
+      <circle cx="930" cy="210" r="10"/>
+      <ellipse cx="930" cy="210" rx="4.5" ry="10"/>
+      <path d="M920 210 H940"/>
+    </g>
+    <text x="930" y="268" fill="#ffffff" fill-opacity="0.8" font-family="system-ui, 'Segoe UI', sans-serif" font-size="17" font-weight="700" letter-spacing="2" text-anchor="middle">DIPLOMATIC BUREAU</text>
+  </g>
+
+  <!-- Central Committee -->
+  <g>
+    <circle cx="600" cy="330" r="110" fill="url(#glow)"/>
+    <circle cx="600" cy="330" r="58" fill="#0b6b3a" stroke="#ffffff" stroke-width="2.5"/>
+    <circle cx="600" cy="330" r="70" fill="none" stroke="#b52025" stroke-width="3"/>
+    <!-- Landmark glyph -->
+    <g fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M574 312 L600 297 L626 312 Z"/>
+      <path d="M580 320 V348 M593 320 V348 M607 320 V348 M620 320 V348"/>
+      <path d="M572 356 H628"/>
+    </g>
+    <text x="600" y="236" fill="#ffffff" font-family="system-ui, 'Segoe UI', sans-serif" font-size="22" font-weight="700" letter-spacing="3" text-anchor="middle">CENTRAL COMMITTEE</text>
+  </g>
+
+  <!-- Zones -->
+  <g font-family="system-ui, 'Segoe UI', sans-serif" font-size="16" font-weight="700" letter-spacing="1.5" text-anchor="middle" fill="#ffffff">
+    <g>
+      <circle cx="170" cy="600" r="30" fill="url(#glow)"/>
+      <circle cx="170" cy="600" r="13" fill="#0b6b3a" stroke="#ffffff" stroke-width="2"/>
+      <text x="170" y="640">AJKGB</text>
+    </g>
+    <g>
+      <circle cx="330" cy="680" r="30" fill="url(#glow)"/>
+      <circle cx="330" cy="680" r="13" fill="#0b6b3a" stroke="#ffffff" stroke-width="2"/>
+      <text x="330" y="720">IOK</text>
+    </g>
+    <g>
+      <circle cx="490" cy="740" r="30" fill="url(#glow)"/>
+      <circle cx="490" cy="740" r="13" fill="#0b6b3a" stroke="#ffffff" stroke-width="2"/>
+      <text x="490" y="780">UK</text>
+    </g>
+    <g>
+      <circle cx="710" cy="740" r="30" fill="url(#glow)"/>
+      <circle cx="710" cy="740" r="13" fill="#0b6b3a" stroke="#ffffff" stroke-width="2"/>
+      <text x="710" y="780">EU</text>
+    </g>
+    <g>
+      <circle cx="870" cy="680" r="30" fill="url(#glow)"/>
+      <circle cx="870" cy="680" r="13" fill="#0b6b3a" stroke="#ffffff" stroke-width="2"/>
+      <text x="870" y="720">NORTH AMERICA</text>
+    </g>
+    <g>
+      <circle cx="1030" cy="600" r="30" fill="url(#glow)"/>
+      <circle cx="1030" cy="600" r="13" fill="#0b6b3a" stroke="#ffffff" stroke-width="2"/>
+      <text x="1030" y="640">GULF</text>
+    </g>
+  </g>
+</svg>

@@ -43,6 +43,16 @@
   font-size: 0.92rem;
 }
 
+.footer-social {
+  margin-top: 22px;
+
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-social a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 .footer-links {
   display: flex;
   flex-direction: column;

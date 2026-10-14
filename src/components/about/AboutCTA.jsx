@@ -28,7 +28,7 @@ export default function AboutCTA() {
           </span>
 
           <h2>
-            Learn More About the Movement
+            Learn More About Our Struggle
           </h2>
 
         </div>
@@ -51,8 +51,8 @@ export default function AboutCTA() {
               </h3>
 
               <p>
-                Follow the movement's development through
-                timelines, documents and archival material.
+                From our founding in 1977 to today — the people
+                and events that shaped our movement.
               </p>
             </div>
 
@@ -78,8 +78,8 @@ export default function AboutCTA() {
               </h3>
 
               <p>
-                Explore JKLF's published positions across major
-                political and constitutional questions.
+                Where we stand on independence, human rights and
+                the future of Jammu Kashmir.
               </p>
             </div>
 

@@ -92,7 +92,7 @@ export const centralCommittee = {
   id: "central-committee",
   title: "Central Committee",
   description:
-    "The Central Committee is the highest organisational body of JKLF, setting policy and overseeing the work of every zone.",
+    "The central leadership of JKLF: the Chairman, Vice Chairmen and central officers, who direct the work of every zone.",
   office: withIds("central-committee", [
     {
       role: "Chairman",

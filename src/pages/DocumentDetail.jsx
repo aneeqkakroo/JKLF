@@ -82,23 +82,24 @@ export default function DocumentDetail() {
                 Document Viewer
               </h2>
 
-              <p>
-                Connect the final PDF or document file through the
-                document's file field in
-                <code> src/data/documents.js</code>.
-              </p>
-
               {document.file ? (
-                <Button
-                  href={document.file}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Open Document
-                </Button>
+                <>
+                  <p>
+                    Read the full document in your browser, or
+                    download a copy.
+                  </p>
+
+                  <Button
+                    href={document.file}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Open Document
+                  </Button>
+                </>
               ) : (
                 <p>
-                  No file has been connected to this placeholder record yet.
+                  This document will be available here soon.
                 </p>
               )}
 

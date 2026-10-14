@@ -1,8 +1,8 @@
 import {
-  Landmark,
+  Flag,
+  HeartHandshake,
   Vote,
-  Users,
-  Map,
+  HandHeart,
   ArrowRight,
 } from "lucide-react";
 
@@ -15,34 +15,31 @@ import {
 
 import "./home.css";
 
+// The four principles of Article 4 of the constitution.
 const pillars = [
   {
-    number: "01",
-    title: "Independent",
+    title: "Independence",
     description:
-      "Information concerning JKLF's position on political self-government and the future status of Jammu Kashmir.",
-    icon: Landmark,
+      "The whole State of Jammu Kashmir, as it stood on 14 August 1947, reunited as a sovereign country. Its future belongs to its people alone.",
+    icon: Flag,
   },
   {
-    number: "02",
-    title: "Democratic",
+    title: "Religious Harmony",
     description:
-      "A political system based upon representative government, elections and popular consent.",
+      "Every citizen free to practise their faith. Sectarian and regional division is poison to the national cause.",
+    icon: HeartHandshake,
+  },
+  {
+    title: "Democracy",
+    description:
+      "Government built on democracy, equality, social justice and human brotherhood, with fundamental rights for all.",
     icon: Vote,
   },
   {
-    number: "03",
-    title: "Secular",
+    title: "Welfare System",
     description:
-      "Equal citizenship irrespective of religion, ethnicity, language, region or community.",
-    icon: Users,
-  },
-  {
-    number: "04",
-    title: "United",
-    description:
-      "Recognition of the different historical regions and peoples that make up Jammu Kashmir.",
-    icon: Map,
+      "Food, healthcare, education and work as duties of the state, with priority for backward areas and communities.",
+    icon: HandHeart,
   },
 ];
 
@@ -56,42 +53,48 @@ export default function Vision() {
 
         <div className="vision-heading">
           <SectionHeader
-            eyebrow="Political Principles"
-            title="Our Vision for Jammu Kashmir"
-            description="Explore the principles and political ideas set out in JKLF's published programme and policy documents."
+            eyebrow="What We Stand For"
+            title="The Free Jammu Kashmir We Seek"
+            description="Four principles from our constitution guide our struggle and the country we are working to build."
           />
 
           <Button
             to="/position"
             variant="hero-outline"
           >
-            Political Programme
+            Our full position
             <ArrowRight size={17} />
           </Button>
         </div>
 
         <div className="vision-grid">
-          {pillars.map((pillar) => {
+          {pillars.map((pillar, index) => {
             const Icon = pillar.icon;
 
             return (
-              <div
+              <article
                 className="vision-card"
                 key={pillar.title}
               >
-                <div className="vision-card__number">
-                  {pillar.number}
+                <div className="vision-card__top">
+                  <span className="vision-card__number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <Icon
+                    className="vision-card__icon"
+                    size={26}
+                  />
                 </div>
 
-                <Icon
-                  className="vision-card__icon"
-                  size={28}
-                />
+                <h3>
+                  {pillar.title}
+                </h3>
 
-                <h3>{pillar.title}</h3>
-
-                <p>{pillar.description}</p>
-              </div>
+                <p>
+                  {pillar.description}
+                </p>
+              </article>
             );
           })}
         </div>

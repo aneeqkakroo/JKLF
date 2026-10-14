@@ -8,20 +8,20 @@ const links = [
     id: "who-we-are",
   },
   {
-    label: "Origins",
-    id: "origins",
-  },
-  {
-    label: "Political Philosophy",
+    label: "What We Stand For",
     id: "philosophy",
   },
   {
-    label: "Political Transition",
-    id: "political-transition",
+    label: "Our Story",
+    id: "origins",
   },
   {
     label: "Organisation",
     id: "organisation",
+  },
+  {
+    label: "Our Flag",
+    id: "flag",
   },
   {
     label: "Key Figures",

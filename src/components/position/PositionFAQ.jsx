@@ -17,28 +17,29 @@ import "./position.css";
 
 const questions = [
   {
-    question:
-      "Where does the political position presented on this website come from?",
+    question: "What does JKLF mean by Kashmir?",
     answer:
-      "The final version should be based primarily on JKLF's constitution, political programme, formal resolutions and attributable public statements.",
+      "The whole State of Jammu Kashmir as it existed on 14 August 1947: the Kashmir Valley, Jammu and Ladakh, Azad Kashmir and Gilgit-Baltistan. We regard it as one indivisible political entity.",
   },
   {
-    question:
-      "Does the website present JKLF's position as undisputed fact?",
+    question: "Does JKLF want Kashmir to join India or Pakistan?",
     answer:
-      "No. Political positions should be attributed clearly. Historical or legal claims should be supported by appropriate independent or primary sources.",
+      "Neither. Our constitution states that no part of the state is constitutionally or legally part of another country, and that the best solution is to reunite the whole state as an independent, sovereign country.",
   },
   {
-    question:
-      "Why are political issues divided into separate pages?",
+    question: "What kind of country would a free Jammu Kashmir be?",
     answer:
-      "Separating major issues allows visitors to explore each question in greater depth and makes it easier to link relevant documents, historical material and sources.",
+      "A democracy built on equality, social justice and human brotherhood, where every citizen is free to practise their religion, fundamental rights are protected, and the state provides for basic needs, healthcare, education and employment.",
   },
   {
-    question:
-      "Where will constitutional proposals be explained?",
+    question: "How would minorities be protected?",
     answer:
-      "Topics concerning governance, regional autonomy, elections, citizenship and institutional design will each have dedicated political-position pages.",
+      "No citizen may face injustice because of sex, residence, race, language or religion, and no group may dominate another. Our constitution calls the protection of minorities the centuries-old tradition and moral responsibility of all Kashmiris.",
+  },
+  {
+    question: "Who decides the future of Jammu Kashmir?",
+    answer:
+      "Only its people. No individual, party or government has the right to decide the state's political future on their behalf, and any arrangement imposed against their collective will has no standing.",
   },
 ];
 
@@ -63,8 +64,8 @@ export default function PositionFAQ() {
 
           <SectionHeader
             eyebrow="Questions"
-            title="Understanding the Political Section"
-            description="How political claims, source material and organisational positions are presented."
+            title="Our Position, Simply Put"
+            description="Short answers to the questions we are asked most often about what we stand for."
           />
 
           <div className="position-faq__list">

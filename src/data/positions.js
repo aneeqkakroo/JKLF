@@ -5,7 +5,7 @@ export const positionTopics = [
     title: "The Kashmir Question",
     category: "Political Status",
     description:
-      "An overview of how JKLF defines the political question concerning Jammu Kashmir and the principles it considers relevant to a future settlement.",
+      "Not a territorial dispute between India and Pakistan, but the question of the national freedom and reunification of a forcibly divided state.",
   },
   {
     id: "self-determination",
@@ -13,7 +13,7 @@ export const positionTopics = [
     title: "Self-Determination",
     category: "Political Rights",
     description:
-      "The organisation's published position concerning political choice, public consent and the right of the people of Jammu Kashmir to determine their future.",
+      "Only the people of Jammu Kashmir have the right to decide their constitution, their political system and their relations with other countries.",
   },
   {
     id: "political-settlement",
@@ -21,7 +21,7 @@ export const positionTopics = [
     title: "Political Settlement",
     category: "Future Framework",
     description:
-      "Material concerning JKLF's proposed approach to a peaceful and democratic political settlement.",
+      "Reuniting the whole state as an independent, sovereign country, and an interim government of the liberated territories until then.",
   },
   {
     id: "india",
@@ -29,7 +29,7 @@ export const positionTopics = [
     title: "Relationship with India",
     category: "Regional Relations",
     description:
-      "JKLF's published political position concerning India and the wider constitutional and political dispute.",
+      "Why we hold that no part of Jammu Kashmir is, constitutionally or legally, part of India.",
   },
   {
     id: "pakistan",
@@ -37,7 +37,7 @@ export const positionTopics = [
     title: "Relationship with Pakistan",
     category: "Regional Relations",
     description:
-      "JKLF's published political position concerning Pakistan and the wider constitutional and political dispute.",
+      "Why we hold that no part of Jammu Kashmir, including Azad Kashmir and Gilgit-Baltistan, is part of Pakistan.",
   },
   {
     id: "governance",
@@ -45,7 +45,7 @@ export const positionTopics = [
     title: "Future Governance",
     category: "Government",
     description:
-      "Ideas concerning representative government, constitutional institutions, accountability and political participation.",
+      "A government founded on democracy, equality, social justice and human brotherhood.",
   },
   {
     id: "regional-autonomy",
@@ -53,7 +53,7 @@ export const positionTopics = [
     title: "Regional Autonomy",
     category: "Constitutional Structure",
     description:
-      "How political institutions could recognise Jammu Kashmir's different regions, local identities and administrative needs.",
+      "One indivisible state of five provinces, in which no region holds undue superiority over another.",
   },
   {
     id: "minority-rights",
@@ -61,7 +61,7 @@ export const positionTopics = [
     title: "Minority Rights",
     category: "Civil Rights",
     description:
-      "Principles concerning equal citizenship and protection of religious, ethnic, linguistic and regional communities.",
+      "Protecting every minority as the centuries-old tradition and moral duty of all Kashmiris.",
   },
   {
     id: "democracy",
@@ -69,7 +69,7 @@ export const positionTopics = [
     title: "Democracy & Elections",
     category: "Political System",
     description:
-      "Representative government, political pluralism, elections, accountability and peaceful democratic participation.",
+      "Free elections, freedom of thought and expression, and equal opportunity for every citizen.",
   },
   {
     id: "secularism",
@@ -77,7 +77,7 @@ export const positionTopics = [
     title: "Secularism",
     category: "Citizenship",
     description:
-      "The relationship between citizenship, political rights, religion and equality within JKLF's stated political philosophy.",
+      "Complete freedom for every citizen to choose and practise their religion and way of life.",
   },
   {
     id: "international-relations",
@@ -85,6 +85,6 @@ export const positionTopics = [
     title: "International Relations",
     category: "Foreign Relations",
     description:
-      "Broad principles concerning peaceful relations, regional cooperation and international political engagement.",
+      "Taking our case to the world as a national liberation struggle, and standing with liberation movements elsewhere.",
   },
 ];

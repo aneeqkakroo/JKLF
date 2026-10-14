@@ -29,12 +29,12 @@ export default function PositionCTA() {
           </span>
 
           <h2>
-            Political Positions in Context
+            Learn More About Our Struggle
           </h2>
 
           <p>
-            Explore the historical record or read the primary
-            documents behind the political programme.
+            Discover the history of our movement, or read our
+            statements and documents in full.
           </p>
 
         </div>
@@ -58,8 +58,8 @@ export default function PositionCTA() {
               </h3>
 
               <p>
-                Timelines, historical events, documents and
-                contextual material.
+                From our founding in 1977 to the reunification of
+                the Front and beyond.
               </p>
             </div>
 
@@ -84,8 +84,8 @@ export default function PositionCTA() {
               </h3>
 
               <p>
-                Constitutions, programmes, resolutions,
-                statements and historical documents.
+                Our constitution, resolutions, statements and
+                historical documents.
               </p>
             </div>
 

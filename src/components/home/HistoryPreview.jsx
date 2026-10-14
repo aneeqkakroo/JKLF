@@ -22,9 +22,9 @@ export default function HistoryPreview() {
         <div className="history-preview__heading">
 
           <SectionHeader
-            eyebrow="Historical Archive"
-            title="The JKLF Story"
-            description="Explore a chronological archive of political developments, documents, individuals and major events."
+            eyebrow="Our Story"
+            title="Decades of Struggle"
+            description="From our founding in 1977 to a reunited Front with one constitution."
           />
 
           <Button

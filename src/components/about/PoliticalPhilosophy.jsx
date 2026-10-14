@@ -1,8 +1,8 @@
 import {
-  Landmark,
+  Flag,
+  HeartHandshake,
   Vote,
-  Users,
-  Map,
+  HandHeart,
   ArrowRight,
 } from "lucide-react";
 
@@ -10,39 +10,35 @@ import {
   Button,
   Container,
   Section,
-  SectionHeader,
 } from "../ui";
 
 import "./about.css";
 
+// Drawn from Article 4 (Ideology) of the JKLF Constitution.
 const principles = [
   {
-    number: "01",
-    title: "Political Independence",
-    icon: Landmark,
+    title: "Independence — the Right of a Nation",
+    icon: Flag,
     text:
-      "Material explaining the organisation's published position concerning the political status and future government of Jammu Kashmir.",
+      "Jammu Kashmir, including every territory that formed part of the state on 14 August 1947, is one indivisible political entity. No part of it is legally part of another country, and its future belongs solely to its people. The best solution is to reunite the whole state as an independent, sovereign country.",
   },
   {
-    number: "02",
-    title: "Democratic Government",
+    title: "Religious Harmony",
+    icon: HeartHandshake,
+    text:
+      "Every citizen will be free to choose and practise their religion and way of life. Sectarian, racial, linguistic and regional division is poison to the national cause, and protecting the rights of every minority is the centuries-old tradition and moral duty of all Kashmiris.",
+  },
+  {
+    title: "Democracy",
     icon: Vote,
     text:
-      "An emphasis on representative government, political participation, elections and government based upon public consent.",
+      "Government must rest on democracy, equality, social justice and human brotherhood, with freedom of thought and expression, protection of life, property and honour, and equal opportunity for every citizen.",
   },
   {
-    number: "03",
-    title: "Secular Citizenship",
-    icon: Users,
+    title: "Welfare System",
+    icon: HandHeart,
     text:
-      "The principle that citizenship and political rights should not depend upon religious, ethnic, linguistic or regional identity.",
-  },
-  {
-    number: "04",
-    title: "Regional Unity",
-    icon: Map,
-    text:
-      "Recognition of Jammu Kashmir's multiple regions, identities and communities within the organisation's broader political programme.",
+      "Providing basic necessities, medical treatment, education and employment, and supporting the unemployed, are fundamental duties of the state. Backward areas and communities will be given priority, so that the whole state rises to the same level.",
   },
 ];
 
@@ -55,53 +51,67 @@ export default function PoliticalPhilosophy() {
     >
       <Container>
 
-        <div className="about-philosophy__heading">
+        <div className="philosophy-layout">
 
-          <SectionHeader
-            eyebrow="Political Philosophy"
-            title="Principles of the Movement"
-            description="A concise introduction to themes found within JKLF's political programme. The dedicated Political Position section will examine each issue in greater depth."
-          />
+          <div className="philosophy-layout__heading">
 
-          <Button
-            to="/position"
-            variant="hero-outline"
-          >
-            Read Our Position
-            <ArrowRight size={17} />
-          </Button>
+            <span className="ui-eyebrow">
+              Political Philosophy
+            </span>
 
-        </div>
+            <h2>
+              What We Stand For
+            </h2>
 
-        <div className="philosophy-grid">
+            <p>
+              Four principles from our constitution guide our
+              struggle and the free Jammu Kashmir we are working to
+              build.
+            </p>
 
-          {principles.map((principle) => {
-            const Icon = principle.icon;
+            <Button
+              to="/position"
+              variant="hero-outline"
+            >
+              Read our full position
+              <ArrowRight size={17} />
+            </Button>
 
-            return (
-              <article
-                className="philosophy-item"
-                key={principle.title}
-              >
-                <div className="philosophy-item__header">
+          </div>
 
-                  <span>
-                    {principle.number}
+          <ol className="philosophy-list">
+
+            {principles.map((principle, index) => {
+              const Icon = principle.icon;
+
+              return (
+                <li
+                  className="philosophy-item"
+                  key={principle.title}
+                >
+
+                  <span className="philosophy-item__number">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
 
-                  <Icon size={25} />
+                  <div>
 
-                </div>
+                    <h3>
+                      <Icon size={22} />
+                      {principle.title}
+                    </h3>
 
-                <h3>
-                  {principle.title}
-                </h3>
+                    <p>
+                      {principle.text}
+                    </p>
 
-                <p>{principle.text}</p>
+                  </div>
 
-              </article>
-            );
-          })}
+                </li>
+              );
+            })}
+
+          </ol>
 
         </div>
 

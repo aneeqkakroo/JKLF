@@ -1,44 +1,33 @@
+// Key milestones, shared by the Home and About pages.
 export const timeline = [
   {
-    year: "1960s",
-    title: "Early Origins",
+    year: "1977",
+    title: "Founded in Birmingham",
     description:
-      "Political developments and organisations preceding the formal development of JKLF.",
+      "JKLF is founded in Birmingham, United Kingdom, by Kashmiris committed to the independence and reunification of their homeland.",
   },
   {
-    year: "1970s",
-    title: "Political Development",
+    year: "1984",
+    title: "Martyrdom of Maqbool Bhat",
     description:
-      "Formation, organisation and development of the movement.",
+      "Shaheed Maqbool Bhat, honoured as the Father of the Nation, is executed in Tihar Jail on 11 February. The day is marked every year.",
   },
   {
-    year: "1980s",
-    title: "A Changing Political Period",
+    year: "2011",
+    title: "Reunification",
     description:
-      "A significant period in the organisation's political history.",
+      "Amanullah Khan and Mohammad Yasin Malik agree on 12 August to reunite the divided Front. The reunification is announced in Islamabad and Srinagar on 15 October.",
   },
   {
-    year: "1990s",
-    title: "Political Transition",
+    year: "2012",
+    title: "A New Constitution",
     description:
-      "Major organisational and political developments during the decade.",
-  },
-  {
-    year: "2000s",
-    title: "Political Campaigning",
-    description:
-      "Political campaigns, international activity and organisational developments.",
-  },
-  {
-    year: "2010s",
-    title: "New Challenges",
-    description:
-      "Political activity and major developments affecting Jammu Kashmir.",
+      "The Fundamental Constitution of the reunited Front is approved on 21 April and published in June, binding every zone under one ideology and leadership.",
   },
   {
     year: "Today",
-    title: "Current Period",
+    title: "Organised Worldwide",
     description:
-      "Contemporary political positions, organisation and public activity.",
+      "A Supreme Council and central leadership direct the work of our zones in Kashmir and the diaspora, with a Diplomatic Bureau representing us abroad.",
   },
 ];

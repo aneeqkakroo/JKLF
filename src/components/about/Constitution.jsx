@@ -1,9 +1,13 @@
 import {
   FileText,
   BookOpenText,
-  Download,
   ArrowRight,
+  ExternalLink,
 } from "lucide-react";
+
+import { Link } from "react-router-dom";
+
+import { constitution } from "../../data/constitution";
 
 import {
   Button,
@@ -12,23 +16,6 @@ import {
 } from "../ui";
 
 import "./about.css";
-
-const documents = [
-  {
-    title: "JKLF Constitution",
-    category: "Constitutional Document",
-    description:
-      "The organisation's constitution, governance provisions and formal organisational framework.",
-    icon: FileText,
-  },
-  {
-    title: "Political Programme",
-    category: "Political Document",
-    description:
-      "The principal document setting out the organisation's political objectives and proposed political framework.",
-    icon: BookOpenText,
-  },
-];
 
 export default function Constitution() {
   return (
@@ -47,66 +34,103 @@ export default function Constitution() {
             </span>
 
             <h2>
-              Read the Primary Documents
+              Our Constitution
             </h2>
 
             <p>
-              Rather than relying only on summaries, visitors should
-              be able to read the organisation's principal documents
-              directly.
+              The Fundamental Constitution of the Jammu Kashmir
+              Liberation Front was approved on {constitution.approved},
+              after the reunification of the Front. It sets out our
+              ideology and aims, who may join, how we are organised
+              and how our leaders are elected.
             </p>
 
             <Button
-              to="/documents"
+              href={constitution.url}
+              target="_blank"
+              rel="noreferrer"
               variant="outline"
             >
-              Browse Document Archive
-              <ArrowRight size={17} />
+              Read the Constitution
+              <ExternalLink size={16} />
             </Button>
 
           </div>
 
           <div className="constitution-documents">
 
-            {documents.map((document) => {
-              const Icon = document.icon;
+            <a
+              className="constitution-document"
+              href={constitution.url}
+              target="_blank"
+              rel="noreferrer"
+            >
 
-              return (
-                <article
-                  className="constitution-document"
-                  key={document.title}
-                >
+              <div className="constitution-document__top">
 
-                  <div className="constitution-document__top">
+                <div className="constitution-document__icon">
+                  <FileText size={24} />
+                </div>
 
-                    <div className="constitution-document__icon">
-                      <Icon size={24} />
-                    </div>
+                <ExternalLink size={18} />
 
-                    <Download size={18} />
+              </div>
 
-                  </div>
+              <span>
+                PDF · {constitution.language}
+              </span>
 
-                  <span>
-                    {document.category}
-                  </span>
+              <h3>
+                {constitution.title}
+              </h3>
 
-                  <h3>
-                    {document.title}
-                  </h3>
+              <p>
+                All {constitution.articles} articles: ideology,
+                aims, membership, organisation, elections, the flag
+                and subsidiary organisations.
+              </p>
 
-                  <p>
-                    {document.description}
-                  </p>
+              <div className="constitution-document__link">
+                Open document
+                <ArrowRight size={16} />
+              </div>
 
-                  <button type="button">
-                    View document
-                    <ArrowRight size={16} />
-                  </button>
+            </a>
 
-                </article>
-              );
-            })}
+            <Link
+              className="constitution-document"
+              to="/position"
+            >
+
+              <div className="constitution-document__top">
+
+                <div className="constitution-document__icon">
+                  <BookOpenText size={24} />
+                </div>
+
+                <ArrowRight size={18} />
+
+              </div>
+
+              <span>
+                Articles 4 & 5
+              </span>
+
+              <h3>
+                Ideology & Aims
+              </h3>
+
+              <p>
+                Our position on the Kashmir issue, the freedom we
+                seek, and the objectives of our struggle, explained.
+              </p>
+
+              <div className="constitution-document__link">
+                Read our position
+                <ArrowRight size={16} />
+              </div>
+
+            </Link>
 
           </div>
 

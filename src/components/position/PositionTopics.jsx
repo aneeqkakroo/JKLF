@@ -23,8 +23,8 @@ export default function PositionTopics() {
 
         <SectionHeader
           eyebrow="Issues & Policies"
-          title="Explore Our Political Positions"
-          description="Select a topic to view the organisation's position, relevant documents, historical context and supporting material."
+          title="Our Position on the Issues"
+          description="Explore where we stand on the key questions facing Jammu Kashmir."
         />
 
         <div className="position-topic-grid">

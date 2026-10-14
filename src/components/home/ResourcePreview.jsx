@@ -47,9 +47,9 @@ export default function ResourcePreview() {
       <Container>
 
         <SectionHeader
-          eyebrow="Research & Resources"
-          title="Documentation & Archive"
-          description="Explore research material, historical documents, reports and multimedia resources."
+          eyebrow="Resources"
+          title="Documents, Media & Human Rights"
+          description="Read our constitution and statements, watch our speeches, and follow our human rights work."
           align="center"
         />
 

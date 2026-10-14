@@ -19,6 +19,7 @@ import Media from "./pages/Media";
 import Contact from "./pages/Contact";
 import PositionDetail from "./pages/PositionDetails";
 import LeadershipDetail from "./pages/LeadershipDetail";
+import DocumentDetail from "./pages/DocumentDetail";
 
 export default function App() {
   return (
@@ -65,6 +66,11 @@ export default function App() {
           <Route
             path="/documents"
             element={<Documents />}
+          />
+
+          <Route
+            path="/documents/:slug"
+            element={<DocumentDetail />}
           />
 
           <Route

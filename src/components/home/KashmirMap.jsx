@@ -1,10 +1,19 @@
 import { useState } from "react";
+
 import {
-  MapPinned,
-  Languages,
-  BookOpen,
   Landmark,
+  MapPinned,
 } from "lucide-react";
+
+import {
+  kashmirRegions,
+  lineOfActualControl,
+  lineOfControl,
+  mapPeaks,
+  mapPlaces,
+  mapViewBox,
+  stateFacts,
+} from "../../data/kashmirMap";
 
 import {
   Container,
@@ -14,139 +23,251 @@ import {
 
 import "./home.css";
 
-const regions = [
-  {
-    id: "valley",
-    name: "Kashmir Valley",
-    description:
-      "Explore geographical, historical and administrative information relating to the Kashmir Valley.",
-  },
-  {
-    id: "jammu",
-    name: "Jammu",
-    description:
-      "Explore the geography, communities, history and administrative development of the Jammu region.",
-  },
-  {
-    id: "ladakh",
-    name: "Ladakh",
-    description:
-      "Explore historical, geographical and administrative information relating to Ladakh.",
-  },
-  {
-    id: "ajk",
-    name: "Azad Jammu & Kashmir",
-    description:
-      "Explore historical and administrative information concerning Azad Jammu and Kashmir.",
-  },
-  {
-    id: "gb",
-    name: "Gilgit-Baltistan",
-    description:
-      "Explore historical, geographical and administrative information concerning Gilgit-Baltistan.",
-  },
-];
-
-const informationTypes = [
-  {
-    icon: MapPinned,
-    label: "Geography",
-  },
-  {
-    icon: Languages,
-    label: "Languages",
-  },
-  {
-    icon: BookOpen,
-    label: "History",
-  },
-  {
-    icon: Landmark,
-    label: "Administration",
-  },
-];
-
 export default function KashmirMap() {
-  const [selectedRegion, setSelectedRegion] =
-    useState(regions[0]);
+  const [selectedId, setSelectedId] = useState(
+    kashmirRegions[0].id
+  );
+
+  const [hoveredId, setHoveredId] = useState(null);
+
+  const selected = kashmirRegions.find(
+    (region) => region.id === selectedId
+  );
+
+  function handleKeyDown(event, id) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setSelectedId(id);
+    }
+  }
 
   return (
-    <Section className="map-section">
+    <Section
+      id="map"
+      className="map-section"
+    >
       <Container>
 
         <SectionHeader
-          eyebrow="Explore the Region"
-          title="Jammu Kashmir"
-          description="Explore the geography, peoples, history and administrative development of the different regions."
+          eyebrow="One Nation, Forcibly Divided"
+          title="The State of Jammu Kashmir"
+          description="Every territory that formed part of the state on 14 August 1947. Select a region to learn more."
           align="center"
         />
 
         <div className="map-explorer">
 
-          <div className="map-explorer__map">
+          <figure className="map-explorer__map">
 
-            <div className="map-placeholder">
-              <div className="map-placeholder__shape">
-                <MapPinned size={48} />
+            <svg
+              className="kashmir-map"
+              viewBox={mapViewBox}
+              role="group"
+              aria-label="Interactive map of the State of Jammu Kashmir"
+            >
 
-                <strong>
-                  Interactive Kashmir Map
-                </strong>
+              {kashmirRegions.map((region) => (
+                <path
+                  key={region.id}
+                  d={region.d}
+                  className={[
+                    "kashmir-map__region",
+                    `kashmir-map__region--${region.id}`,
+                    region.id === selectedId &&
+                      "kashmir-map__region--active",
+                    region.id === hoveredId &&
+                      "kashmir-map__region--hover",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={region.name}
+                  aria-pressed={region.id === selectedId}
+                  onClick={() => setSelectedId(region.id)}
+                  onKeyDown={(event) =>
+                    handleKeyDown(event, region.id)
+                  }
+                  onMouseEnter={() => setHoveredId(region.id)}
+                  onMouseLeave={() => setHoveredId(null)}
+                />
+              ))}
 
-                <span>
-                  SVG map will be inserted here
-                </span>
-              </div>
-            </div>
+              <path
+                className="kashmir-map__line kashmir-map__line--loc"
+                d={lineOfControl}
+              />
 
-          </div>
+              <path
+                className="kashmir-map__line kashmir-map__line--lac"
+                d={lineOfActualControl}
+              />
+
+              <g
+                className="kashmir-map__places"
+                aria-hidden="true"
+              >
+                {mapPlaces.map((place) => (
+                  <g key={place.name}>
+                    <circle
+                      cx={place.point[0]}
+                      cy={place.point[1]}
+                      r="3.5"
+                    />
+
+                    <text
+                      x={place.point[0] + 7}
+                      y={place.point[1] + 4}
+                    >
+                      {place.name}
+                    </text>
+                  </g>
+                ))}
+
+                {mapPeaks.map((peak) => (
+                  <g
+                    key={peak.name}
+                    className="kashmir-map__peak"
+                  >
+                    <path
+                      d={`M${peak.point[0] - 6} ${peak.point[1] + 5} L${peak.point[0]} ${peak.point[1] - 6} L${peak.point[0] + 6} ${peak.point[1] + 5} Z`}
+                    />
+
+                    <text
+                      x={peak.point[0] + 9}
+                      y={peak.point[1] + 4}
+                    >
+                      {peak.name}
+                    </text>
+                  </g>
+                ))}
+              </g>
+
+              <g
+                className="kashmir-map__labels"
+                aria-hidden="true"
+              >
+                {kashmirRegions.map((region) => (
+                  <text
+                    key={region.id}
+                    x={region.label[0]}
+                    y={region.label[1]}
+                    transform={
+                      region.labelRotate
+                        ? `rotate(${region.labelRotate} ${region.label[0]} ${region.label[1]})`
+                        : undefined
+                    }
+                    className={[
+                      "kashmir-map__label",
+                      `kashmir-map__label--${region.id}`,
+                      region.id === selectedId &&
+                        "kashmir-map__label--active",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                  >
+                    {region.shortName || region.name}
+                  </text>
+                ))}
+              </g>
+
+            </svg>
+
+            <figcaption className="kashmir-map__legend">
+              <span>
+                <i className="kashmir-map__key kashmir-map__key--loc" />
+                Line of Control
+              </span>
+
+              <span>
+                <i className="kashmir-map__key kashmir-map__key--lac" />
+                Line of Actual Control
+              </span>
+
+              <small>
+                Boundaries are approximate and shown for
+                reference only.
+              </small>
+            </figcaption>
+
+          </figure>
 
           <div className="map-explorer__panel">
 
-            <span className="map-explorer__label">
-              Select a region
-            </span>
-
-            <div className="region-selector">
-              {regions.map((region) => (
+            <div
+              className="region-selector"
+              role="group"
+              aria-label="Select a region"
+            >
+              {kashmirRegions.map((region) => (
                 <button
+                  type="button"
                   key={region.id}
                   className={
-                    selectedRegion.id === region.id
+                    region.id === selectedId
                       ? "region-button region-button--active"
                       : "region-button"
                   }
-                  onClick={() =>
-                    setSelectedRegion(region)
-                  }
+                  aria-pressed={region.id === selectedId}
+                  onClick={() => setSelectedId(region.id)}
                 >
                   {region.name}
                 </button>
               ))}
             </div>
 
-            <div className="region-information">
-              <span>Region</span>
+            <div
+              className="region-information"
+              aria-live="polite"
+            >
 
-              <h3>{selectedRegion.name}</h3>
+              <span>
+                {selected.control}
+              </span>
+
+              <h3>
+                {selected.name}
+              </h3>
 
               <p>
-                {selectedRegion.description}
+                {selected.description}
               </p>
 
-              <div className="region-information__types">
-                {informationTypes.map((item) => {
-                  const Icon = item.icon;
+              {selected.districts.length > 0 && (
+                <dl className="region-information__facts">
+                  <div>
+                    <dt>
+                      <Landmark size={16} />
+                      Districts
+                    </dt>
 
-                  return (
-                    <div key={item.label}>
-                      <Icon size={18} />
-                      <span>{item.label}</span>
-                    </div>
-                  );
-                })}
-              </div>
+                    <dd>
+                      {selected.districts.join(", ")}
+                    </dd>
+                  </div>
+                </dl>
+              )}
+
             </div>
+
+            <dl className="map-facts">
+              {stateFacts.map((fact) => (
+                <div key={fact.label}>
+                  <dd>
+                    {fact.value}
+                  </dd>
+
+                  <dt>
+                    {fact.label}
+                  </dt>
+                </div>
+              ))}
+            </dl>
+
+            <p className="map-source">
+              <MapPinned size={14} />
+              Figures from the JKLF Constitution (2012).
+            </p>
 
           </div>
 

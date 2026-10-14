@@ -24,16 +24,16 @@ export default function KeyFigures() {
         <div className="key-figures__heading">
 
           <SectionHeader
-            eyebrow="People & History"
-            title="Key Historical Figures"
-            description="Biographies should provide context, primary material and historical sources rather than simply short profile descriptions."
+            eyebrow="Our Founders"
+            title="The People Who Shaped Our Movement"
+            description="Leaders whose vision, courage and sacrifice built the Jammu Kashmir Liberation Front."
           />
 
           <Button
             to="/leadership"
             variant="outline"
           >
-            Leadership & People
+            All leadership
             <ArrowRight size={17} />
           </Button>
 
