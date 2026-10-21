@@ -7,7 +7,7 @@ import { positionTopics } from "../src/data/positions.js";
 import { allLeadershipProfiles } from "../src/data/leadership.js";
 import { documents } from "../src/data/documents.js";
 
-const SITE_URL = "https://jklf.org";
+const SITE_URL = "https://www.jklf.org";
 
 // /verify-membership is left out on purpose: it is served with noindex.
 const staticPages = [

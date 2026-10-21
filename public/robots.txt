@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /verify-membership
 
-Sitemap: https://jklf.org/sitemap.xml
+Sitemap: https://www.jklf.org/sitemap.xml
