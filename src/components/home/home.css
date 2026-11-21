@@ -934,19 +934,6 @@
   font-size: 0.7rem;
 }
 
-.map-source {
-  margin: -8px 0 0;
-
-  display: flex;
-  align-items: center;
-
-  gap: 6px;
-
-  color: var(--color-text-secondary);
-
-  font-size: 0.72rem;
-}
-
 
 /* =========================================================
    LEADERSHIP PREVIEW
@@ -1769,25 +1756,42 @@
 
 @media (max-width: 900px) {
 
+  /* On tablets and phones the flag sits top-right, behind the heading */
   .home-hero__flag {
-    top: 24px;
-    right: -60px;
+    z-index: 1;
 
-    width: 300px;
+    top: 18px;
+    right: -14px;
+
+    width: min(66vw, 400px);
 
     transform: rotate(-4deg);
 
+    filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.35));
+
     animation-name: hero-flag-in-small;
+    animation-delay: 0.1s;
   }
 
   @keyframes hero-flag-in-small {
     from {
       opacity: 0;
+
+      transform: translateY(10px) rotate(-4deg);
     }
 
     to {
-      opacity: 0.25;
+      opacity: 0.88;
+
+      transform: translateY(0) rotate(-4deg);
     }
+  }
+
+  /* Keep the text readable where it crosses the flag */
+  .home-hero__eyebrow,
+  .home-hero h1,
+  .home-hero__lead {
+    text-shadow: 0 2px 14px rgba(3, 32, 15, 0.75);
   }
 
   .who-we-are,
@@ -1836,7 +1840,15 @@
   }
 
   .home-hero__flag {
-    display: none;
+    top: 10px;
+    right: -18px;
+
+    width: 80vw;
+  }
+
+  /* Start the heading lower so the flag is seen first */
+  .home-hero__container {
+    padding-top: 190px;
   }
 
   .vision-grid,
@@ -1950,5 +1962,41 @@
     top: 50%;
 
     transform: translateY(-50%);
+  }
+}
+
+
+/* Reduced motion on small screens: show the flag at its resting fade */
+@media (max-width: 900px) and (prefers-reduced-motion: reduce) {
+  .home-hero__flag {
+    opacity: 0.88;
+  }
+}
+
+@media (max-width: 650px) {
+  .home-hero {
+    align-items: flex-start;
+  }
+}
+
+
+/* Map figures refresh when the selected region changes */
+.map-facts > div {
+  animation: map-fact-in 0.35s ease-out both;
+}
+
+.map-facts > div:nth-child(2) { animation-delay: 0.05s; }
+.map-facts > div:nth-child(3) { animation-delay: 0.1s; }
+
+@keyframes map-fact-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-facts > div {
+    animation: none;
   }
 }

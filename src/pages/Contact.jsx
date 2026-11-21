@@ -6,7 +6,7 @@ import ContactInformation from "../components/contact/ContactInformation";
 import ContactCTA from "../components/contact/ContactCTA";
 import FollowUs from "../components/home/FollowUs";
 
-import contactHero from "../assets/images/contact-hero.png";
+import contactHero from "../assets/images/page-hero.jpg";
 
 export default function Contact() {
   return (

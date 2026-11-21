@@ -9,7 +9,7 @@ import {
   news,
 } from "../data/News";
 
-import newsHero from "../assets/images/news-hero.png";
+import newsHero from "../assets/images/page-hero.jpg";
 
 export default function News() {
   const featuredArticle =

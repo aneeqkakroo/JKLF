@@ -5,7 +5,7 @@ import MediaArchive from "../components/media/MediaArchive";
 import PressResources from "../components/media/PressResources";
 import MediaCTA from "../components/media/MediaCTA";
 
-import mediaHero from "../assets/images/media-hero.png";
+import mediaHero from "../assets/images/page-hero.jpg";
 
 export default function Media() {
   return (

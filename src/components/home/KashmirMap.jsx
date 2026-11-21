@@ -2,7 +2,6 @@ import { useState } from "react";
 
 import {
   Landmark,
-  MapPinned,
 } from "lucide-react";
 
 import {
@@ -12,7 +11,8 @@ import {
   mapPeaks,
   mapPlaces,
   mapViewBox,
-  stateFacts,
+  regionFacts,
+  wholeState,
 } from "../../data/kashmirMap";
 
 import {
@@ -25,19 +25,29 @@ import "./home.css";
 
 export default function KashmirMap() {
   const [selectedId, setSelectedId] = useState(
-    kashmirRegions[0].id
+    wholeState.id
   );
 
   const [hoveredId, setHoveredId] = useState(null);
 
-  const selected = kashmirRegions.find(
-    (region) => region.id === selectedId
-  );
+  const selected =
+    kashmirRegions.find(
+      (region) => region.id === selectedId
+    ) || wholeState;
+
+  const facts = regionFacts(selected);
+
+  // Clicking the selected region again returns to the whole state.
+  function select(id) {
+    setSelectedId((current) =>
+      current === id ? wholeState.id : id
+    );
+  }
 
   function handleKeyDown(event, id) {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      setSelectedId(id);
+      select(id);
     }
   }
 
@@ -60,7 +70,11 @@ export default function KashmirMap() {
           <figure className="map-explorer__map">
 
             <svg
-              className="kashmir-map"
+              className={
+                selectedId === wholeState.id
+                  ? "kashmir-map"
+                  : "kashmir-map kashmir-map--has-selection"
+              }
               viewBox={mapViewBox}
               role="group"
               aria-label="Interactive map of the State of Jammu Kashmir"
@@ -84,7 +98,7 @@ export default function KashmirMap() {
                   tabIndex={0}
                   aria-label={region.name}
                   aria-pressed={region.id === selectedId}
-                  onClick={() => setSelectedId(region.id)}
+                  onClick={() => select(region.id)}
                   onKeyDown={(event) =>
                     handleKeyDown(event, region.id)
                   }
@@ -199,7 +213,7 @@ export default function KashmirMap() {
               role="group"
               aria-label="Select a region"
             >
-              {kashmirRegions.map((region) => (
+              {[wholeState, ...kashmirRegions].map((region) => (
                 <button
                   type="button"
                   key={region.id}
@@ -250,8 +264,12 @@ export default function KashmirMap() {
 
             </div>
 
-            <dl className="map-facts">
-              {stateFacts.map((fact) => (
+            <dl
+              className="map-facts"
+              key={selected.id}
+              aria-live="polite"
+            >
+              {facts.map((fact) => (
                 <div key={fact.label}>
                   <dd>
                     {fact.value}
@@ -263,11 +281,6 @@ export default function KashmirMap() {
                 </div>
               ))}
             </dl>
-
-            <p className="map-source">
-              <MapPinned size={14} />
-              Figures from the JKLF Constitution (2012).
-            </p>
 
           </div>
 

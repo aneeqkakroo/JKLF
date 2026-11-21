@@ -11,7 +11,7 @@ import {
 
 import {
   news,
-} from "../data/news";
+} from "../data/News";
 
 import {
   Badge,

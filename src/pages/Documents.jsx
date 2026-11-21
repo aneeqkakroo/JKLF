@@ -6,7 +6,7 @@ import DocumentsArchive from "../components/documents/DocumentsArchive";
 import DocumentCollections from "../components/documents/DocumentCollections";
 import DocumentsCTA from "../components/documents/DocumentsCTA";
 
-import documentsHero from "../assets/images/documents-hero.png";
+import documentsHero from "../assets/images/page-hero.jpg";
 
 export default function Documents() {
   return (
