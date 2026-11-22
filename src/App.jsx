@@ -21,6 +21,8 @@ import Contact from "./pages/Contact";
 import PositionDetail from "./pages/PositionDetails";
 import LeadershipDetail from "./pages/LeadershipDetail";
 import DocumentDetail from "./pages/DocumentDetail";
+import NewsDetail from "./pages/NewsDetail";
+import HumanRightsDetail from "./pages/HumanRightsDetail";
 
 export default function App() {
   return (
@@ -65,6 +67,11 @@ export default function App() {
           />
 
           <Route
+            path="/news/:slug"
+            element={<NewsDetail />}
+          />
+
+          <Route
             path="/documents"
             element={<Documents />}
           />
@@ -77,6 +84,11 @@ export default function App() {
           <Route
             path="/human-rights"
             element={<HumanRights />}
+          />
+
+          <Route
+            path="/human-rights/:slug"
+            element={<HumanRightsDetail />}
           />
 
           <Route

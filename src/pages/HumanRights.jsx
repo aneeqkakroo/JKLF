@@ -5,7 +5,7 @@ import FeaturedCase from "../components/human-rights/FeaturedCase";
 import HumanRightsCases from "../components/human-rights/HumanRightsCases";
 import SourceStandards from "../components/human-rights/SourceStandards";
 import HumanRightsCTA from "../components/human-rights/HumanRightsCTA";
-import humanRightsHero from "../assets/images/human-rights-hero.png";
+import humanRightsHero from "../assets/images/page-hero.jpg";
 
 export default function HumanRights() {
   return (

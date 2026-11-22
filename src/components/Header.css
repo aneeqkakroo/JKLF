@@ -94,7 +94,16 @@
 
 @media (max-width: 1100px) {
   .mobile-menu-button {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+    margin-right: -8px;
+    padding: 0;
+
+    cursor: pointer;
   }
 
   .site-navigation {

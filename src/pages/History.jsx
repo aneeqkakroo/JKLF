@@ -10,7 +10,7 @@ import PeopleInHistory from "../components/history/PeopleInHistory";
 import ArchiveExplorer from "../components/history/ArchiveExplorer";
 import HistoryCTA from "../components/history/HistoryCTA";
 
-import historyHero from "../assets/images/history-hero.png";
+import historyHero from "../assets/images/page-hero.jpg";
 
 export default function History() {
   return (

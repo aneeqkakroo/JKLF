@@ -1662,14 +1662,14 @@
   .leadership-feature-grid,
   .historical-leadership-grid,
   .leadership-cta__grid,
-  .zone-panel__name {
-  margin: 0 0 16px;
-
-  font-size: 1.1rem;
-}
-
-.zone-office-grid {
+  .zone-office-grid {
     grid-template-columns: 1fr;
+  }
+
+  .zone-panel__name {
+    margin: 0 0 16px;
+
+    font-size: 1.1rem;
   }
 
   .central-committee {
