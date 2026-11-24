@@ -29,7 +29,7 @@ export default function HistoryCTA() {
           </span>
 
           <h2>
-            Go Deeper Into the Archive
+            Learn More About JKLF
           </h2>
 
         </div>
@@ -37,23 +37,23 @@ export default function HistoryCTA() {
         <div className="history-cta__grid">
 
           <Link
-            to="/documents"
+            to="/position"
             className="history-cta-card"
           >
             <Library size={28} />
 
             <div>
               <span>
-                Primary Material
+                Political Programme
               </span>
 
               <h3>
-                Search Documents
+                Read Our Position
               </h3>
 
               <p>
-                Explore political documents, reports,
-                correspondence and historical records.
+                Independence, democracy and the reunification of the
+                whole State, in our own words.
               </p>
             </div>
 

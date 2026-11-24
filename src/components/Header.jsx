@@ -13,9 +13,6 @@ const navigation = [
   { label: "History", path: "/history" },
   { label: "Leadership", path: "/leadership" },
   { label: "News", path: "/news" },
-  { label: "Documents", path: "/documents" },
-  { label: "Human Rights", path: "/human-rights" },
-  { label: "Media", path: "/media" },
   { label: "Contact", path: "/contact" },
 ];
 

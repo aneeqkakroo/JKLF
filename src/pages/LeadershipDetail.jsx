@@ -6,8 +6,6 @@ import {
 
 import {
   ArrowLeft,
-  FileText,
-  Mic2,
   Newspaper,
   UserRound,
 } from "lucide-react";
@@ -137,34 +135,6 @@ export default function LeadershipDetail() {
               <span>
                 Related Material
               </span>
-
-              <Link to="/documents">
-                <FileText size={18} />
-
-                <div>
-                  <strong>
-                    Documents
-                  </strong>
-
-                  <small>
-                    Statements and records
-                  </small>
-                </div>
-              </Link>
-
-              <Link to="/media">
-                <Mic2 size={18} />
-
-                <div>
-                  <strong>
-                    Speeches & Interviews
-                  </strong>
-
-                  <small>
-                    Media archive
-                  </small>
-                </div>
-              </Link>
 
               <Link to="/news">
                 <Newspaper size={18} />

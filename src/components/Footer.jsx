@@ -15,9 +15,6 @@ const footerLinks = {
 
   Resources: [
     ["News & Statements", "/news"],
-    ["Documents", "/documents"],
-    ["Human Rights", "/human-rights"],
-    ["Media Centre", "/media"],
   ],
 
   Information: [

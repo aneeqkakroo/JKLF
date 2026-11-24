@@ -7,7 +7,6 @@ import FeaturedIssue from "../components/home/FeaturedIssue";
 import HistoryPreview from "../components/home/HistoryPreview";
 import InternationalPresence from "../components/home/InternationalPresence";
 import LatestNews from "../components/home/LatestNews";
-import ResourcePreview from "../components/home/ResourcePreview";
 import FollowUs from "../components/home/FollowUs";
 
 export default function Home() {
@@ -22,7 +21,6 @@ export default function Home() {
       <InternationalPresence />
       <HistoryPreview />
       <LatestNews />
-      <ResourcePreview />
       <FollowUs />
     </>
   );
