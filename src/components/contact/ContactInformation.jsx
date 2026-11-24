@@ -16,24 +16,24 @@ import "./contact.css";
 const information = [
   {
     icon: Mail,
-    title: "Email",
-    value: "Add official email address",
+    title: "How to Reach Us",
+    value: "Use the contact form",
     description:
-      "Replace this placeholder with the appropriate organisational contact address.",
+      "Messages from the form go straight to the organisation. Choose the enquiry type that fits best so it reaches the right people.",
   },
   {
     icon: Clock3,
     title: "Response",
-    value: "Response times vary",
+    value: "We reply by email",
     description:
-      "Urgent or media enquiries can be directed to the appropriate contact address.",
+      "Replies usually take a few days. Media enquiries with a deadline should say so in the first line of the message.",
   },
   {
     icon: ShieldCheck,
     title: "Privacy",
-    value: "Personal information",
+    value: "Your details stay private",
     description:
-      "Contact details should be processed according to the website privacy policy.",
+      "We use your name and email only to answer your message, and delete messages after two years.",
   },
   {
     icon: FileText,

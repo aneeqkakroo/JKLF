@@ -1,6 +1,14 @@
+import { useState } from "react";
+
 import {
+  CheckCircle2,
   Send,
 } from "lucide-react";
+
+import {
+  CONTACT_SUBJECTS,
+  sendContactMessage,
+} from "../../lib/contactMessage.js";
 
 import {
   Container,
@@ -9,9 +17,45 @@ import {
 
 import "./contact.css";
 
+const PRIVACY_URL = "https://app.jklf.org/privacy";
+
+const emptyForm = {
+  name: "",
+  email: "",
+  country: "",
+  subject: "",
+  message: "",
+  website: "", // hidden from people; only bots fill it in
+};
+
 export default function ContactForm() {
-  function handleSubmit(event) {
+  const [form, setForm] = useState(emptyForm);
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const [error, setError] = useState("");
+  // When the form was opened; forms sent within seconds are from bots
+  const [openedAt, setOpenedAt] = useState(() => Date.now());
+
+  function update(event) {
+    setForm({ ...form, [event.target.name]: event.target.value });
+  }
+
+  async function handleSubmit(event) {
     event.preventDefault();
+    setStatus("sending");
+    setError("");
+
+    const result = await sendContactMessage(
+      { ...form, elapsed_ms: Date.now() - openedAt },
+      { env: import.meta.env }
+    );
+
+    if (result.ok) {
+      setStatus("sent");
+      setForm(emptyForm);
+    } else {
+      setStatus("error");
+      setError(result.error);
+    }
   }
 
   return (
@@ -32,123 +76,190 @@ export default function ContactForm() {
             </h2>
 
             <p>
-              This frontend form is ready to connect to your preferred
-              backend, API or form service when the website goes live.
+              Write to the Jammu Kashmir Liberation Front. Your message
+              goes directly to the organisation, and we reply by email.
             </p>
 
             <div className="contact-layout__note">
 
               <strong>
-                Before launch
+                Your details
               </strong>
 
               <p>
-                Add your real organisational email addresses and connect
-                this form to your email/API backend.
+                We use your name and email only to reply to your
+                message. Read the{" "}
+                <a
+                  href={PRIVACY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  privacy policy
+                </a>
+                .
               </p>
 
             </div>
 
           </div>
 
-          <form
-            className="contact-form"
-            onSubmit={handleSubmit}
-          >
+          {status === "sent" ? (
+            <div
+              className="contact-form contact-form--sent"
+              role="status"
+            >
+              <CheckCircle2 size={40} />
 
-            <div className="contact-form__row">
+              <h3>
+                Thank you. Your message has been sent.
+              </h3>
 
-              <label>
-                Name
+              <p>
+                We will reply to the email address you gave. Replies can
+                take a few days.
+              </p>
 
-                <input
-                  type="text"
-                  name="name"
-                  autoComplete="name"
-                  required
-                />
-              </label>
-
-              <label>
-                Email
-
-                <input
-                  type="email"
-                  name="email"
-                  autoComplete="email"
-                  required
-                />
-              </label>
-
+              <button
+                type="button"
+                onClick={() => {
+                  setOpenedAt(Date.now());
+                  setStatus("idle");
+                }}
+              >
+                Send another message
+              </button>
             </div>
+          ) : (
+            <form
+              className="contact-form"
+              onSubmit={handleSubmit}
+            >
 
-            <div className="contact-form__row">
+              <div className="contact-form__row">
 
-              <label>
-                Country
+                <label>
+                  Name
 
-                <input
-                  type="text"
-                  name="country"
-                  autoComplete="country-name"
-                />
-              </label>
+                  <input
+                    type="text"
+                    name="name"
+                    autoComplete="name"
+                    maxLength={120}
+                    required
+                    value={form.name}
+                    onChange={update}
+                  />
+                </label>
 
-              <label>
-                Subject
+                <label>
+                  Email
 
-                <select
-                  name="subject"
-                  defaultValue=""
-                  required
-                >
-                  <option
-                    value=""
-                    disabled
+                  <input
+                    type="email"
+                    name="email"
+                    autoComplete="email"
+                    maxLength={320}
+                    required
+                    value={form.email}
+                    onChange={update}
+                  />
+                </label>
+
+              </div>
+
+              <div className="contact-form__row">
+
+                <label>
+                  Country
+
+                  <input
+                    type="text"
+                    name="country"
+                    autoComplete="country-name"
+                    maxLength={80}
+                    value={form.country}
+                    onChange={update}
+                  />
+                </label>
+
+                <label>
+                  Subject
+
+                  <select
+                    name="subject"
+                    required
+                    value={form.subject}
+                    onChange={update}
                   >
-                    Select enquiry type
-                  </option>
+                    <option
+                      value=""
+                      disabled
+                    >
+                      Select enquiry type
+                    </option>
 
-                  <option value="general">
-                    General Enquiry
-                  </option>
+                    {CONTACT_SUBJECTS.map((subject) => (
+                      <option
+                        key={subject.value}
+                        value={subject.value}
+                      >
+                        {subject.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
 
-                  <option value="media">
-                    Media Enquiry
-                  </option>
+              </div>
 
-                  <option value="research">
-                    Research & Archive
-                  </option>
+              <label>
+                Message
 
-                  <option value="international">
-                    International Relations
-                  </option>
-
-                  <option value="technical">
-                    Website / Technical
-                  </option>
-                </select>
+                <textarea
+                  name="message"
+                  rows="8"
+                  minLength={10}
+                  maxLength={5000}
+                  required
+                  value={form.message}
+                  onChange={update}
+                />
               </label>
 
-            </div>
+              {/* Hidden from people and screen readers; bots fill it in */}
+              <label
+                className="contact-form__trap"
+                aria-hidden="true"
+              >
+                Website
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={form.website}
+                  onChange={update}
+                />
+              </label>
 
-            <label>
-              Message
+              {status === "error" && (
+                <p
+                  className="contact-form__error"
+                  role="alert"
+                >
+                  {error}
+                </p>
+              )}
 
-              <textarea
-                name="message"
-                rows="8"
-                required
-              />
-            </label>
+              <button
+                type="submit"
+                disabled={status === "sending"}
+              >
+                {status === "sending" ? "Sending…" : "Send Message"}
+                <Send size={17} />
+              </button>
 
-            <button type="submit">
-              Send Message
-              <Send size={17} />
-            </button>
-
-          </form>
+            </form>
+          )}
 
         </div>
 
