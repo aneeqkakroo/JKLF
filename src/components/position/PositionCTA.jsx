@@ -34,7 +34,7 @@ export default function PositionCTA() {
 
           <p>
             Discover the history of our movement, or read our
-            statements and documents in full.
+            latest statements.
           </p>
 
         </div>
@@ -68,7 +68,7 @@ export default function PositionCTA() {
           </Link>
 
           <Link
-            to="/documents"
+            to="/news"
             className="position-cta-card"
           >
 
@@ -76,16 +76,16 @@ export default function PositionCTA() {
 
             <div>
               <span>
-                Primary Sources
+                Latest
               </span>
 
               <h3>
-                Search the Archive
+                News & Statements
               </h3>
 
               <p>
-                Our constitution, resolutions, statements and
-                historical documents.
+                Official statements, press releases and notices
+                from the Front.
               </p>
             </div>
 

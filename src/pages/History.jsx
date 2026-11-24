@@ -5,7 +5,6 @@ import PageHero from "../components/shared/PageHero";
 import HistoryIntro from "../components/history/HistoryIntro";
 import HistoryExplorer from "../components/history/HistoryExplorer";
 import HistoricalEvents from "../components/history/HistoricalEvents";
-import HistoricalDocuments from "../components/history/HistoricalDocuments";
 import PeopleInHistory from "../components/history/PeopleInHistory";
 import ArchiveExplorer from "../components/history/ArchiveExplorer";
 import HistoryCTA from "../components/history/HistoryCTA";
@@ -28,7 +27,6 @@ export default function History() {
 
       <HistoricalEvents />
 
-      <HistoricalDocuments />
 
       <PeopleInHistory />
 

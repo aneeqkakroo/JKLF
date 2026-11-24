@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 import { constitution } from "../../data/constitution";
 
 import {
-  Button,
   Container,
   Section,
 } from "../ui";
@@ -42,14 +41,6 @@ export default function PositionDocuments() {
               Constitution of the Jammu Kashmir Liberation Front.
             </p>
           </div>
-
-          <Button
-            to="/documents"
-            variant="hero-outline"
-          >
-            Document Archive
-            <ArrowRight size={17} />
-          </Button>
 
         </div>
 
@@ -114,26 +105,26 @@ export default function PositionDocuments() {
 
           <Link
             className="position-document-card"
-            to="/documents"
+            to="/news"
           >
 
             <Library size={27} />
 
             <span>
-              Archive
+              Statements
             </span>
 
             <h3>
-              Statements & Resolutions
+              News & Statements
             </h3>
 
             <p>
-              Resolutions, memoranda, statements and historical
-              documents of the Liberation Front.
+              Official statements, press releases and notices
+              from the Liberation Front.
             </p>
 
             <div className="position-document-card__link">
-              Browse the archive
+              Read the latest
               <ArrowRight size={16} />
             </div>
 

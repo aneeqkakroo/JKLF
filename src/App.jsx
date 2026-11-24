@@ -1,6 +1,7 @@
 import VerifyMembership from "./pages/VerifyMembership";
 import {
   BrowserRouter,
+  Navigate,
   Routes,
   Route,
 } from "react-router-dom";
@@ -14,15 +15,10 @@ import Position from "./pages/Position";
 import History from "./pages/History";
 import Leadership from "./pages/Leadership";
 import News from "./pages/News";
-import Documents from "./pages/Documents";
-import HumanRights from "./pages/HumanRights";
-import Media from "./pages/Media";
 import Contact from "./pages/Contact";
 import PositionDetail from "./pages/PositionDetails";
 import LeadershipDetail from "./pages/LeadershipDetail";
-import DocumentDetail from "./pages/DocumentDetail";
 import NewsDetail from "./pages/NewsDetail";
-import HumanRightsDetail from "./pages/HumanRightsDetail";
 
 export default function App() {
   return (
@@ -72,33 +68,14 @@ export default function App() {
           />
 
           <Route
-            path="/documents"
-            element={<Documents />}
-          />
-
-          <Route
-            path="/documents/:slug"
-            element={<DocumentDetail />}
-          />
-
-          <Route
-            path="/human-rights"
-            element={<HumanRights />}
-          />
-
-          <Route
-            path="/human-rights/:slug"
-            element={<HumanRightsDetail />}
-          />
-
-          <Route
-            path="/media"
-            element={<Media />}
-          />
-
-          <Route
             path="/contact"
             element={<Contact />}
+          />
+
+          {/* Unknown or removed addresses (e.g. old /documents links) go home */}
+          <Route
+            path="*"
+            element={<Navigate to="/" replace />}
           />
 
         </Route>

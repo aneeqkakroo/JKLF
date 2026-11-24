@@ -8,7 +8,6 @@ import {
 } from "../../data/history";
 
 import {
-  Button,
   Container,
   Section,
   SectionHeader,
@@ -30,13 +29,6 @@ export default function HistoricalEvents() {
             description="Important events can be documented through concise summaries, timelines, competing perspectives and primary material."
           />
 
-          <Button
-            to="/documents"
-            variant="outline"
-          >
-            Search Archive
-            <ArrowRight size={17} />
-          </Button>
 
         </div>
 

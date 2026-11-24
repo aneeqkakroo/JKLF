@@ -23,7 +23,7 @@ export default function NewsArchiveCTA() {
 
         <div className="news-cta__heading">
           <span className="ui-eyebrow">
-            Media & Archive
+            Learn More
           </span>
 
           <h2>
@@ -34,24 +34,24 @@ export default function NewsArchiveCTA() {
         <div className="news-cta__grid">
 
           <Link
-            to="/documents"
+            to="/about"
             className="news-cta-card"
           >
             <Archive size={28} />
 
             <div>
               <span>
-                Research
+                Background
               </span>
 
               <h3>
-                Search Documents
+                About JKLF
               </h3>
 
               <p>
-                Explore reports, political
-                documents and archived
-                publications.
+                Who we are, our constitution
+                and how the Front is
+                organised.
               </p>
             </div>
 

@@ -546,107 +546,6 @@
 
 
 /* =========================================================
-   HISTORICAL DOCUMENTS
-========================================================= */
-
-.historical-documents__intro {
-  display: grid;
-
-  grid-template-columns:
-    1fr 0.7fr;
-
-  gap: 100px;
-
-  margin-bottom: 60px;
-}
-
-.historical-documents__intro h2 {
-  max-width: 700px;
-
-  margin: 10px 0 0;
-
-  font-size:
-    clamp(2.6rem, 5vw, 4.2rem);
-
-  line-height: 1.03;
-
-  letter-spacing: -0.045em;
-}
-
-.historical-documents__intro
-> div:last-child {
-  align-self: end;
-}
-
-.historical-documents__intro p {
-  margin-bottom: 25px;
-
-  color:
-    rgba(255, 255, 255, 0.62);
-
-  line-height: 1.75;
-}
-
-.historical-document-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, minmax(0, 1fr));
-
-  border-top:
-    1px solid rgba(255, 255, 255, 0.14);
-}
-
-.historical-document-type {
-  min-height: 290px;
-
-  padding: 34px;
-
-  display: flex;
-  flex-direction: column;
-
-  border-right:
-    1px solid rgba(255, 255, 255, 0.14);
-}
-
-.historical-document-type:last-child {
-  border-right: 0;
-}
-
-.historical-document-type > svg {
-  margin-bottom: 45px;
-
-  color:
-    rgba(255, 255, 255, 0.58);
-}
-
-.historical-document-type h3 {
-  margin-bottom: 12px;
-
-  font-size: 1.2rem;
-}
-
-.historical-document-type p {
-  color:
-    rgba(255, 255, 255, 0.56);
-
-  font-size: 0.84rem;
-}
-
-.historical-document-type > div {
-  margin-top: auto;
-
-  display: flex;
-  align-items: center;
-
-  gap: 8px;
-
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-
-
-/* =========================================================
    PEOPLE
 ========================================================= */
 
@@ -899,7 +798,7 @@
   letter-spacing: -0.04em;
 }
 
-.history-cta__grid {
+  .history-cta__grid {
   display: grid;
 
   grid-template-columns:
@@ -974,30 +873,22 @@
 
 @media (max-width: 1050px) {
 
-  .history-intro,
-  .historical-documents__intro {
+  .history-intro {
     gap: 55px;
   }
 
-  .history-feature-grid,
-  .historical-document-grid {
+  .history-feature-grid {
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
   }
 
-  .history-feature:nth-child(2),
-  .historical-document-type:nth-child(2) {
+  .history-feature:nth-child(2) {
     border-right: 0;
   }
 
   .history-feature:nth-child(-n + 2) {
     border-bottom:
       1px solid var(--color-border);
-  }
-
-  .historical-document-type:nth-child(-n + 2) {
-    border-bottom:
-      1px solid rgba(255, 255, 255, 0.14);
   }
 
   .historical-event-grid {
@@ -1013,8 +904,7 @@
 
 @media (max-width: 800px) {
 
-  .history-intro,
-  .historical-documents__intro {
+  .history-intro {
     grid-template-columns: 1fr;
   }
 
@@ -1067,13 +957,11 @@
 
   .history-feature-grid,
   .historical-event-grid,
-  .historical-document-grid,
   .history-cta__grid {
     grid-template-columns: 1fr;
   }
 
-  .history-feature,
-  .historical-document-type {
+  .history-feature {
     border-right: 0;
   }
 
@@ -1083,15 +971,6 @@
   }
 
   .history-feature:last-child {
-    border-bottom: 0;
-  }
-
-  .historical-document-type {
-    border-bottom:
-      1px solid rgba(255, 255, 255, 0.14);
-  }
-
-  .historical-document-type:last-child {
     border-bottom: 0;
   }
 

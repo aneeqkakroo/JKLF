@@ -7,9 +7,7 @@ import { writeFileSync } from "node:fs";
 
 import { positionTopics } from "../src/data/positions.js";
 import { allLeadershipProfiles } from "../src/data/leadership.js";
-import { documents } from "../src/data/documents.js";
 import { fetchPublicNews } from "../src/lib/publicNews.js";
-import { humanRightsCases } from "../src/data/humanRights.js";
 
 const SITE_URL = "https://www.jklf.org";
 
@@ -29,18 +27,8 @@ const staticPages = [
   { path: "/history", priority: "0.8", changefreq: "monthly" },
   { path: "/leadership", priority: "0.8", changefreq: "monthly" },
   { path: "/news", priority: "0.8", changefreq: "weekly" },
-  { path: "/documents", priority: "0.8", changefreq: "monthly" },
-  { path: "/human-rights", priority: "0.7", changefreq: "monthly" },
-  { path: "/media", priority: "0.6", changefreq: "monthly" },
   { path: "/contact", priority: "0.5", changefreq: "yearly" },
 ];
-
-// Placeholder entries (e.g. "memorandum-example") are not real pages yet.
-const isPlaceholder = (id) => id.endsWith("-example");
-
-// Case files are still template copy; keep them out until real text replaces it.
-const hasPlaceholderText = (item) =>
-  /example|placeholder/i.test(JSON.stringify(item));
 
 const detailPages = [
   ...positionTopics.map((item) => ({
@@ -53,25 +41,11 @@ const detailPages = [
     priority: "0.6",
     changefreq: "monthly",
   })),
-  ...documents
-    .filter((item) => !isPlaceholder(item.id))
-    .map((item) => ({
-      path: `/documents/${item.id}`,
-      priority: "0.6",
-      changefreq: "yearly",
-    })),
   ...news.map((item) => ({
     path: `/news/${item.slug}`,
     priority: "0.6",
     changefreq: "monthly",
   })),
-  ...humanRightsCases
-    .filter((item) => !hasPlaceholderText(item))
-    .map((item) => ({
-      path: `/human-rights/${item.id}`,
-      priority: "0.6",
-      changefreq: "monthly",
-    })),
 ];
 
 const lastmod = new Date().toISOString().slice(0, 10);
