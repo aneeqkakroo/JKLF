@@ -1135,127 +1135,8 @@
 
 
 /* =========================================================
-   NEWS
+   NEWS (cards come from components/news/NewsCards.jsx)
 ========================================================= */
-
-.news-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
-  gap: 24px;
-}
-
-.news-card {
-  background: white;
-
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-
-  overflow: hidden;
-
-  transition:
-    transform var(--transition),
-    box-shadow var(--transition);
-}
-
-.news-card:hover {
-  transform: translateY(-4px);
-
-  box-shadow: var(--shadow-md);
-}
-
-.news-card__image {
-  position: relative;
-
-  height: 215px;
-
-  background: #e9eee9;
-}
-
-.news-card__image img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-}
-
-.news-card__placeholder {
-  height: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--color-primary-dark),
-      #183e2a
-    );
-
-  color: rgba(255, 255, 255, 0.45);
-
-  font-size: 2.2rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-}
-
-.news-card__image .ui-badge {
-  position: absolute;
-
-  left: 18px;
-  bottom: 16px;
-}
-
-.news-card__content {
-  padding: 26px;
-}
-
-.news-card__date {
-  display: flex;
-  align-items: center;
-
-  gap: 7px;
-
-  margin-bottom: 14px;
-
-  color: var(--color-text-secondary);
-
-  font-size: 0.77rem;
-}
-
-.news-card h3 {
-  font-size: 1.25rem;
-
-  margin-bottom: 12px;
-}
-
-.news-card h3 a:hover {
-  color: var(--color-primary);
-}
-
-.news-card p {
-  color: var(--color-text-secondary);
-
-  font-size: 0.88rem;
-}
-
-.news-card__link {
-  display: inline-flex;
-  align-items: center;
-
-  gap: 8px;
-
-  margin-top: 8px;
-
-  color: var(--color-primary);
-
-  font-size: 0.83rem;
-  font-weight: 700;
-}
-
 
 /* =========================================================
    HISTORY
@@ -1808,7 +1689,6 @@
     min-height: 420px;
   }
 
-  .news-grid,
   .resource-grid {
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
@@ -1853,7 +1733,6 @@
 
   .vision-grid,
   .leader-grid,
-  .news-grid,
   .resource-grid {
     grid-template-columns: 1fr;
   }

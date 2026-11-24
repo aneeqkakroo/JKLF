@@ -1,15 +1,25 @@
-// Builds public/sitemap.xml from the routes in src/App.jsx and the data
-// files that back the detail pages. Runs automatically before `npm run build`.
+// Builds public/sitemap.xml from the routes in src/App.jsx, the data files
+// that back the detail pages and the public news published from the JKLF app.
+// Runs automatically before `npm run build`. Articles published after a build
+// are added at the next deployment; their pages work immediately either way.
 
 import { writeFileSync } from "node:fs";
 
 import { positionTopics } from "../src/data/positions.js";
 import { allLeadershipProfiles } from "../src/data/leadership.js";
 import { documents } from "../src/data/documents.js";
-import { news } from "../src/data/News.js";
+import { fetchPublicNews } from "../src/lib/publicNews.js";
 import { humanRightsCases } from "../src/data/humanRights.js";
 
 const SITE_URL = "https://www.jklf.org";
+
+let news = [];
+
+try {
+  news = await fetchPublicNews({ env: process.env, maxItems: 200 });
+} catch (error) {
+  console.warn(`Sitemap: news skipped (${error.message})`);
+}
 
 // /verify-membership is left out on purpose: it is served with noindex.
 const staticPages = [
@@ -28,7 +38,7 @@ const staticPages = [
 // Placeholder entries (e.g. "memorandum-example") are not real pages yet.
 const isPlaceholder = (id) => id.endsWith("-example");
 
-// News and case files are still template copy; keep them out until real text replaces it.
+// Case files are still template copy; keep them out until real text replaces it.
 const hasPlaceholderText = (item) =>
   /example|placeholder/i.test(JSON.stringify(item));
 
@@ -50,13 +60,11 @@ const detailPages = [
       priority: "0.6",
       changefreq: "yearly",
     })),
-  ...news
-    .filter((item) => !hasPlaceholderText(item))
-    .map((item) => ({
-      path: `/news/${item.slug}`,
-      priority: "0.6",
-      changefreq: "monthly",
-    })),
+  ...news.map((item) => ({
+    path: `/news/${item.slug}`,
+    priority: "0.6",
+    changefreq: "monthly",
+  })),
   ...humanRightsCases
     .filter((item) => !hasPlaceholderText(item))
     .map((item) => ({
