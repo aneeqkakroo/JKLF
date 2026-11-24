@@ -1,32 +1,83 @@
-import PageHero from "../components/shared/PageHero";
+import {
+  Clock3,
+  Newspaper,
+  ShieldCheck,
+} from "lucide-react";
 
-import ContactIntro from "../components/contact/ContactIntro";
+import { Container } from "../components/ui";
 import ContactForm from "../components/contact/ContactForm";
-import ContactInformation from "../components/contact/ContactInformation";
-import ContactCTA from "../components/contact/ContactCTA";
-import FollowUs from "../components/home/FollowUs";
+import SocialLinks from "../components/SocialLinks";
+import useDocumentTitle from "../lib/useDocumentTitle";
 
-import contactHero from "../assets/images/page-hero.jpg";
+import "../components/contact/contact.css";
+
+const PRIVACY_URL = "https://app.jklf.org/privacy";
 
 export default function Contact() {
+  useDocumentTitle("Contact");
+
   return (
-    <>
-      <PageHero
-        eyebrow="Contact"
-        title="Contact JKLF"
-        description="General, media, research, archive, international and website enquiries."
-        backgroundImage={contactHero}
-      />
+    <section className="contact-page">
+      <Container className="contact-page__inner">
 
-      <ContactIntro />
+        <div className="contact-page__intro">
+          <span className="ui-eyebrow">
+            Contact
+          </span>
 
-      <ContactForm />
+          <h1>
+            Contact JKLF
+          </h1>
 
-      <ContactInformation />
+          <p className="contact-page__lead">
+            Send a message to the Jammu Kashmir Liberation Front. It goes
+            straight to the organisation, and we reply by email.
+          </p>
+        </div>
 
-      <FollowUs />
+        <ContactForm />
 
-      <ContactCTA />
-    </>
+        <div className="contact-page__details">
+          <ul className="contact-facts">
+            <li>
+              <Clock3 size={19} />
+              <span>
+                Replies usually take a few days.
+              </span>
+            </li>
+
+            <li>
+              <Newspaper size={19} />
+              <span>
+                Media enquiry with a deadline? Say so in the first line.
+              </span>
+            </li>
+
+            <li>
+              <ShieldCheck size={19} />
+              <span>
+                Your details are used only to reply.{" "}
+                <a
+                  href={PRIVACY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Privacy policy
+                </a>
+              </span>
+            </li>
+          </ul>
+
+          <div className="contact-page__social">
+            <span>
+              Follow JKLF
+            </span>
+
+            <SocialLinks size={17} />
+          </div>
+        </div>
+
+      </Container>
+    </section>
   );
 }

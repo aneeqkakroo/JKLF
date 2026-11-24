@@ -10,14 +10,7 @@ import {
   sendContactMessage,
 } from "../../lib/contactMessage.js";
 
-import {
-  Container,
-  Section,
-} from "../ui";
-
 import "./contact.css";
-
-const PRIVACY_URL = "https://app.jklf.org/privacy";
 
 const emptyForm = {
   name: "",
@@ -59,212 +52,164 @@ export default function ContactForm() {
   }
 
   return (
-    <Section variant="soft">
+    <div className="contact-page__form">
+      {status === "sent" ? (
+        <div
+          className="contact-form contact-form--sent"
+          role="status"
+        >
+          <CheckCircle2 size={40} />
 
-      <Container>
+          <h3>
+            Thank you. Your message has been sent.
+          </h3>
 
-        <div className="contact-layout">
+          <p>
+            We will reply to the email address you gave. Replies can
+            take a few days.
+          </p>
 
-          <div className="contact-layout__intro">
+          <button
+            type="button"
+            onClick={() => {
+              setOpenedAt(Date.now());
+              setStatus("idle");
+            }}
+          >
+            Send another message
+          </button>
+        </div>
+      ) : (
+        <form
+          className="contact-form"
+          onSubmit={handleSubmit}
+        >
 
-            <span className="ui-eyebrow">
-              Send a Message
-            </span>
+          <div className="contact-form__row">
 
-            <h2>
-              Contact Form
-            </h2>
+            <label>
+              Name
 
-            <p>
-              Write to the Jammu Kashmir Liberation Front. Your message
-              goes directly to the organisation, and we reply by email.
-            </p>
+              <input
+                type="text"
+                name="name"
+                autoComplete="name"
+                maxLength={120}
+                required
+                value={form.name}
+                onChange={update}
+              />
+            </label>
 
-            <div className="contact-layout__note">
+            <label>
+              Email
 
-              <strong>
-                Your details
-              </strong>
-
-              <p>
-                We use your name and email only to reply to your
-                message. Read the{" "}
-                <a
-                  href={PRIVACY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  privacy policy
-                </a>
-                .
-              </p>
-
-            </div>
+              <input
+                type="email"
+                name="email"
+                autoComplete="email"
+                maxLength={320}
+                required
+                value={form.email}
+                onChange={update}
+              />
+            </label>
 
           </div>
 
-          {status === "sent" ? (
-            <div
-              className="contact-form contact-form--sent"
-              role="status"
-            >
-              <CheckCircle2 size={40} />
+          <div className="contact-form__row">
 
-              <h3>
-                Thank you. Your message has been sent.
-              </h3>
+            <label>
+              Country
 
-              <p>
-                We will reply to the email address you gave. Replies can
-                take a few days.
-              </p>
+              <input
+                type="text"
+                name="country"
+                autoComplete="country-name"
+                maxLength={80}
+                value={form.country}
+                onChange={update}
+              />
+            </label>
 
-              <button
-                type="button"
-                onClick={() => {
-                  setOpenedAt(Date.now());
-                  setStatus("idle");
-                }}
+            <label>
+              Subject
+
+              <select
+                name="subject"
+                required
+                value={form.subject}
+                onChange={update}
               >
-                Send another message
-              </button>
-            </div>
-          ) : (
-            <form
-              className="contact-form"
-              onSubmit={handleSubmit}
-            >
-
-              <div className="contact-form__row">
-
-                <label>
-                  Name
-
-                  <input
-                    type="text"
-                    name="name"
-                    autoComplete="name"
-                    maxLength={120}
-                    required
-                    value={form.name}
-                    onChange={update}
-                  />
-                </label>
-
-                <label>
-                  Email
-
-                  <input
-                    type="email"
-                    name="email"
-                    autoComplete="email"
-                    maxLength={320}
-                    required
-                    value={form.email}
-                    onChange={update}
-                  />
-                </label>
-
-              </div>
-
-              <div className="contact-form__row">
-
-                <label>
-                  Country
-
-                  <input
-                    type="text"
-                    name="country"
-                    autoComplete="country-name"
-                    maxLength={80}
-                    value={form.country}
-                    onChange={update}
-                  />
-                </label>
-
-                <label>
-                  Subject
-
-                  <select
-                    name="subject"
-                    required
-                    value={form.subject}
-                    onChange={update}
-                  >
-                    <option
-                      value=""
-                      disabled
-                    >
-                      Select enquiry type
-                    </option>
-
-                    {CONTACT_SUBJECTS.map((subject) => (
-                      <option
-                        key={subject.value}
-                        value={subject.value}
-                      >
-                        {subject.label}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-
-              </div>
-
-              <label>
-                Message
-
-                <textarea
-                  name="message"
-                  rows="8"
-                  minLength={10}
-                  maxLength={5000}
-                  required
-                  value={form.message}
-                  onChange={update}
-                />
-              </label>
-
-              {/* Hidden from people and screen readers; bots fill it in */}
-              <label
-                className="contact-form__trap"
-                aria-hidden="true"
-              >
-                Website
-                <input
-                  type="text"
-                  name="website"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  value={form.website}
-                  onChange={update}
-                />
-              </label>
-
-              {status === "error" && (
-                <p
-                  className="contact-form__error"
-                  role="alert"
+                <option
+                  value=""
+                  disabled
                 >
-                  {error}
-                </p>
-              )}
+                  Select enquiry type
+                </option>
 
-              <button
-                type="submit"
-                disabled={status === "sending"}
-              >
-                {status === "sending" ? "Sending…" : "Send Message"}
-                <Send size={17} />
-              </button>
+                {CONTACT_SUBJECTS.map((subject) => (
+                  <option
+                    key={subject.value}
+                    value={subject.value}
+                  >
+                    {subject.label}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-            </form>
+          </div>
+
+          <label>
+            Message
+
+            <textarea
+              name="message"
+              rows="8"
+              minLength={10}
+              maxLength={5000}
+              required
+              value={form.message}
+              onChange={update}
+            />
+          </label>
+
+          {/* Hidden from people and screen readers; bots fill it in */}
+          <label
+            className="contact-form__trap"
+            aria-hidden="true"
+          >
+            Website
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              value={form.website}
+              onChange={update}
+            />
+          </label>
+
+          {status === "error" && (
+            <p
+              className="contact-form__error"
+              role="alert"
+            >
+              {error}
+            </p>
           )}
 
-        </div>
+          <button
+            type="submit"
+            disabled={status === "sending"}
+          >
+            {status === "sending" ? "Sending…" : "Send Message"}
+            <Send size={17} />
+          </button>
 
-      </Container>
-
-    </Section>
+        </form>
+      )}
+    </div>
   );
 }
