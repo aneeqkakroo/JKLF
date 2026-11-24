@@ -23,7 +23,11 @@ export function LeadStory({ article }) {
   return (
     <Link
       to={`/news/${article.slug}`}
-      className="news-lead"
+      className={
+        article.title.length > 90
+          ? "news-lead news-lead--long-title"
+          : "news-lead"
+      }
     >
       <NewsVisual article={article} iconSize={96} />
 

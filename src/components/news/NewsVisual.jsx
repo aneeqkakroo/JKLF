@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import {
   Megaphone,
   Newspaper,
@@ -13,15 +15,19 @@ const categoryIcons = {
 const categoryKey = (category) =>
   String(category).toLowerCase().replace(/[^a-z]+/g, "-");
 
-// The article's photo, or a branded panel in the category's colour.
+// The article's photo, or a branded panel in the category's colour
+// (also used if the photo fails to load).
 export default function NewsVisual({ article, iconSize = 40 }) {
-  if (article.image) {
+  const [failed, setFailed] = useState(false);
+
+  if (article.image && !failed) {
     return (
       <img
         className="news-visual news-visual--photo"
         src={article.image}
         alt={article.imageAlt || ""}
         loading="lazy"
+        onError={() => setFailed(true)}
       />
     );
   }

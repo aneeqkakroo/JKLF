@@ -2,7 +2,7 @@
 // Photos live in the app's private "update-images" bucket. The database only
 // lets the public sign links for photos of public, published updates, so
 // this works for those and nothing else. The address stays the same forever,
-// which link previews need, while the signed link behind it is short-lived.
+// which link previews need; it redirects to a signed link valid for one day.
 
 import {
   fetchNewsImagePath,
@@ -36,7 +36,8 @@ export default async function handler(req, res) {
       {
         method: "POST",
         headers: { apikey: key, "Content-Type": "application/json" },
-        body: JSON.stringify({ expiresIn: 300 }),
+        // Valid for a day; caches below expire well before the link does
+        body: JSON.stringify({ expiresIn: 86400 }),
       }
     );
 
@@ -47,17 +48,10 @@ export default async function handler(req, res) {
       return;
     }
 
-    const image = await fetch(`${url}/storage/v1${signedURL}`);
-
-    if (!image.ok) {
-      res.status(502).send("Image could not be loaded.");
-      return;
-    }
-
-    res.setHeader("Content-Type", image.headers.get("content-type") || "image/jpeg");
-    // Browsers keep it for an hour, Vercel's edge for a day
-    res.setHeader("Cache-Control", "public, max-age=3600, s-maxage=86400");
-    res.status(200).send(Buffer.from(await image.arrayBuffer()));
+    // Redirect rather than pass the photo through: app photos can be up to
+    // 8 MB, above Vercel's response size limit.
+    res.setHeader("Cache-Control", "public, max-age=3600, s-maxage=43200");
+    res.redirect(302, `${url}/storage/v1${signedURL}`);
   } catch {
     res.status(502).send("Image could not be loaded.");
   }

@@ -227,6 +227,13 @@
   letter-spacing: -0.035em;
 }
 
+/* Press-release headlines can run to two long sentences */
+.news-lead--long-title h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
 .news-lead p {
   margin: 0;
   color: rgba(255, 255, 255, 0.82);

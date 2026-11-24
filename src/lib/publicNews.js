@@ -48,18 +48,29 @@ function slugify(text) {
     .replace(/-+$/, "");
 }
 
-// Plain-text summary from the start of the article
-function summarise(body, limit = 200) {
-  const firstParagraph =
-    String(body)
-      .split(/\n\s*\n/)
-      .map((part) => part.trim())
-      .find(Boolean) || "";
-
-  const plain = firstParagraph
+const plainText = (text) =>
+  String(text)
     .replace(/[#>*_`[\]]/g, "")
     .replace(/\s+/g, " ")
     .trim();
+
+// Plain-text summary from the start of the article. Press releases often open
+// with letterhead lines ("Central Information Office", "Dated: …") and repeat
+// the title, so skip short paragraphs and any that just repeat the title.
+function summarise(body, title, limit = 200) {
+  const paragraphs = String(body)
+    .split(/\n\s*\n/)
+    .map(plainText)
+    .filter(Boolean);
+
+  const sameAsTitle = (text) =>
+    text.toLowerCase().replace(/[^a-z0-9]/g, "") ===
+    String(title).toLowerCase().replace(/[^a-z0-9]/g, "");
+
+  const plain =
+    paragraphs.find((text) => text.length >= 80 && !sameAsTitle(text)) ||
+    paragraphs.find((text) => !sameAsTitle(text)) ||
+    "";
 
   if (plain.length <= limit) {
     return plain;
@@ -100,7 +111,7 @@ export function toArticle(item) {
     year: new Date(item.published_at).getUTCFullYear(),
     updatedAt: item.updated_at,
     category: NEWS_CATEGORY_LABELS[item.category] || "Organisation",
-    excerpt: summarise(item.body),
+    excerpt: summarise(item.body, item.title),
     author: "JKLF",
     image: item.has_image ? `/api/news-image?id=${item.id}` : null,
     imageAlt: item.image_alt || "",
