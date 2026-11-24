@@ -187,17 +187,32 @@
   padding: 44px;
 }
 
-/* Dark fade so the title reads over any photo */
+/* Dark shading so the title reads over any photo, including busy graphics
+   with their own lettering: darkest behind the text (bottom left), lighter
+   towards the top right so the photo still shows. */
 .news-lead::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(
-    180deg,
-    rgba(3, 20, 10, 0) 30%,
-    rgba(3, 20, 10, 0.88) 100%
-  );
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 20, 10, 0.78) 0%,
+      rgba(3, 20, 10, 0.55) 50%,
+      rgba(3, 20, 10, 0.12) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(3, 20, 10, 0.1) 0%,
+      rgba(3, 20, 10, 0.35) 45%,
+      rgba(3, 20, 10, 0.9) 100%
+    );
+}
+
+.news-lead h2,
+.news-lead p {
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
 }
 
 .news-lead:hover > .news-visual {
@@ -870,6 +885,16 @@
 
   .news-lead__content {
     padding: 26px 22px;
+  }
+
+  /* Text runs the full width on phones, so shade the whole lower half */
+  .news-lead::after {
+    background: linear-gradient(
+      180deg,
+      rgba(3, 20, 10, 0.25) 0%,
+      rgba(3, 20, 10, 0.6) 40%,
+      rgba(3, 20, 10, 0.92) 100%
+    );
   }
 
   .news-lead > .news-visual--panel {
