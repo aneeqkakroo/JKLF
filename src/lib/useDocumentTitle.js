@@ -1,0 +1,16 @@
+import { useEffect } from "react";
+
+const SITE_NAME = "JKLF";
+
+// Sets the browser tab title, e.g. "Statement title | JKLF".
+export default function useDocumentTitle(title) {
+  useEffect(() => {
+    const previous = document.title;
+
+    document.title = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
+
+    return () => {
+      document.title = previous;
+    };
+  }, [title]);
+}

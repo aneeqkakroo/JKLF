@@ -4,14 +4,17 @@ import {
   useParams,
 } from "react-router-dom";
 
+import { useMemo } from "react";
+
 import {
   ArrowLeft,
   CalendarDays,
 } from "lucide-react";
 
-import {
-  news,
-} from "../data/News";
+import { marked } from "marked";
+
+import useNews from "../data/useNews";
+import { findArticle } from "../lib/publicNews.js";
 
 import {
   Badge,
@@ -19,14 +22,53 @@ import {
   Section,
 } from "../components/ui";
 
+import { NewsMessage } from "../components/news/NewsCards";
+import ShareArticle from "../components/news/ShareArticle";
+import useDocumentTitle from "../lib/useDocumentTitle";
+
 import "../components/news/news.css";
+
+// App updates are plain text. Escape any HTML, then let Markdown handle
+// paragraphs, line breaks, links, bold text and lists.
+function renderBody(text) {
+  const escaped = String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+  return marked.parse(escaped, { breaks: true });
+}
 
 export default function NewsDetail() {
   const { slug } = useParams();
+  const { news, status } = useNews();
 
-  const article = news.find(
-    (item) => item.slug === slug
+  const article = findArticle(news, slug);
+
+  useDocumentTitle(article?.title);
+
+  const bodyHtml = useMemo(
+    () => (article ? renderBody(article.body) : ""),
+    [article]
   );
+
+  if (status !== "ready") {
+    return (
+      <Section>
+        <Container>
+          {status === "loading" ? (
+            <div
+              className="news-article-loading"
+              aria-busy="true"
+              aria-label="Loading article"
+            />
+          ) : (
+            <NewsMessage status="error" />
+          )}
+        </Container>
+      </Section>
+    );
+  }
 
   if (!article) {
     return (
@@ -41,6 +83,11 @@ export default function NewsDetail() {
     .filter(
       (item) =>
         item.id !== article.id
+    )
+    .sort(
+      (a, b) =>
+        Number(b.category === article.category) -
+        Number(a.category === article.category)
     )
     .slice(0, 2);
 
@@ -72,10 +119,6 @@ export default function NewsDetail() {
             {article.title}
           </h1>
 
-          <p className="news-article-hero__excerpt">
-            {article.excerpt}
-          </p>
-
         </Container>
       </section>
 
@@ -85,13 +128,23 @@ export default function NewsDetail() {
           <div className="news-article-layout">
 
             <article className="news-article-main">
-              {article.body.map(
-                (paragraph, index) => (
-                  <p key={index}>
-                    {paragraph}
-                  </p>
-                )
+              {article.image && (
+                <img
+                  className="news-article-image"
+                  src={article.image}
+                  alt={article.imageAlt}
+                />
               )}
+
+              <div
+                className="news-article-body"
+                dangerouslySetInnerHTML={{ __html: bodyHtml }}
+              />
+
+              <ShareArticle
+                title={article.title}
+                slug={article.slug}
+              />
 
               {related.length > 0 && (
                 <div className="news-related">

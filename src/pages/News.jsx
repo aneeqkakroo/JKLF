@@ -1,38 +1,23 @@
-import PageHero from "../components/shared/PageHero";
-
 import NewsIntro from "../components/news/NewsIntro";
-import FeaturedNews from "../components/news/FeaturedNews";
-import NewsArchive from "../components/news/NewsArchive";
+import NewsMagazine from "../components/news/NewsMagazine";
 import NewsArchiveCTA from "../components/news/NewsArchiveCTA";
 
-import {
-  news,
-} from "../data/News";
-
-import newsHero from "../assets/images/page-hero.jpg";
+import useNews from "../data/useNews";
+import useDocumentTitle from "../lib/useDocumentTitle";
 
 export default function News() {
-  const featuredArticle =
-    news.find(
-      (article) => article.featured
-    ) || news[0];
+  useDocumentTitle("News & Statements");
+
+  const { news, status } = useNews();
 
   return (
     <>
-      <PageHero
-        eyebrow="Newsroom"
-        title="News & Statements"
-        description="Official statements, press releases, speeches, announcements and organisational publications."
-        backgroundImage={newsHero}
+      <NewsIntro latest={news[0]} />
+
+      <NewsMagazine
+        news={news}
+        status={status}
       />
-
-      <NewsIntro />
-
-      <FeaturedNews
-        article={featuredArticle}
-      />
-
-      <NewsArchive />
 
       <NewsArchiveCTA />
     </>

@@ -1,22 +1,29 @@
-import {
-  ArrowRight,
-  CalendarDays,
-} from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
-import { news } from "../../data/News";
+import useNews from "../../data/useNews";
 
 import {
   Button,
   Container,
   Section,
   SectionHeader,
-  Badge,
 } from "../ui";
+
+import {
+  StoryCard,
+  StoryCardSkeleton,
+} from "../news/NewsCards";
 
 import "./home.css";
 
 export default function LatestNews() {
+  const { news, status } = useNews();
+
+  // Nothing to show yet (or the request failed): leave the section out.
+  if (status !== "loading" && news.length === 0) {
+    return null;
+  }
+
   return (
     <Section variant="soft">
       <Container>
@@ -40,60 +47,14 @@ export default function LatestNews() {
         </div>
 
         <div className="news-grid">
-
-          {news.slice(0, 3).map((article) => (
-            <article
-              className="news-card"
-              key={article.id}
-            >
-
-              <div className="news-card__image">
-                {article.image ? (
-                  <img
-                    src={article.image}
-                    alt=""
-                  />
-                ) : (
-                  <div className="news-card__placeholder">
-                    JKLF
-                  </div>
-                )}
-
-                <Badge>
-                  {article.category}
-                </Badge>
-              </div>
-
-              <div className="news-card__content">
-
-                <div className="news-card__date">
-                  <CalendarDays size={15} />
-                  {article.date}
-                </div>
-
-                <h3>
-                  <Link
-                    to={`/news/${article.slug}`}
-                  >
-                    {article.title}
-                  </Link>
-                </h3>
-
-                <p>{article.excerpt}</p>
-
-                <Link
-                  className="news-card__link"
-                  to={`/news/${article.slug}`}
-                >
-                  Read more
-                  <ArrowRight size={16} />
-                </Link>
-
-              </div>
-
-            </article>
-          ))}
-
+          {status === "loading"
+            ? [1, 2, 3].map((key) => <StoryCardSkeleton key={key} />)
+            : news.slice(0, 3).map((article) => (
+                <StoryCard
+                  key={article.id}
+                  article={article}
+                />
+              ))}
         </div>
 
       </Container>
