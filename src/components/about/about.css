@@ -837,6 +837,11 @@
   gap: 20px;
 }
 
+.constitution-documents .constitution-document--wide {
+  grid-column: 1 / -1;
+  min-height: 0;
+}
+
 .constitution-document {
   min-height: 330px;
 

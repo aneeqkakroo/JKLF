@@ -1,13 +1,14 @@
 import {
   FileText,
   BookOpenText,
+  Map,
   ArrowRight,
   ExternalLink,
 } from "lucide-react";
 
 import { Link } from "react-router-dom";
 
-import { constitution } from "../../data/constitution";
+import { constitution, roadmap } from "../../data/constitution";
 
 import {
   Button,
@@ -97,8 +98,45 @@ export default function Constitution() {
 
             </a>
 
-            <Link
+            <a
               className="constitution-document"
+              href={roadmap.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+
+              <div className="constitution-document__top">
+
+                <div className="constitution-document__icon">
+                  <Map size={24} />
+                </div>
+
+                <ExternalLink size={18} />
+
+              </div>
+
+              <span>
+                PDF · {roadmap.language}
+              </span>
+
+              <h3>
+                {roadmap.title}
+              </h3>
+
+              <p>
+                {roadmap.author} on JKLF&apos;s ideology and its
+                roadmap to an independent, reunited Kashmir.
+              </p>
+
+              <div className="constitution-document__link">
+                Open document
+                <ArrowRight size={16} />
+              </div>
+
+            </a>
+
+            <Link
+              className="constitution-document constitution-document--wide"
               to="/position"
             >
 
