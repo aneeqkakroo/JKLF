@@ -7,3 +7,12 @@ export const constitution = {
   language: "English translation",
   articles: 23,
 };
+
+// Amanullah Khan's "Our Ideology and Our Roadmap for an Independent Kashmir",
+// English edition of the 2012 Urdu booklet. Also in public/documents/.
+export const roadmap = {
+  title: "Our Ideology and Our Roadmap for an Independent Kashmir",
+  author: "Amanullah Khan",
+  url: "/documents/RoadMap_English_Edition.pdf",
+  language: "English translation",
+};
